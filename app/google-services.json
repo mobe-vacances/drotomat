@@ -1,0 +1,98 @@
+{
+  "project_info": {
+    "project_number": "103629772986",
+    "firebase_url": "https://mobe-challenge-5790c-default-rtdb.firebaseio.com",
+    "project_id": "mobe-challenge-5790c",
+    "storage_bucket": "mobe-challenge-5790c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:103629772986:android:f1951020e989e2af638a83",
+        "android_client_info": {
+          "package_name": "m2dl.mobe.vacances.challenge"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "103629772986-5l6od2b983jni2oc5h82i63l5fomjvs0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBnCdGLwb9N8GtneASkIFjLBKW-p2_dxdY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "103629772986-5l6od2b983jni2oc5h82i63l5fomjvs0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:103629772986:android:b2c3b70a4979f5a8638a83",
+        "android_client_info": {
+          "package_name": "org.ut3.mobe.challenge"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "103629772986-5l6od2b983jni2oc5h82i63l5fomjvs0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBnCdGLwb9N8GtneASkIFjLBKW-p2_dxdY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "103629772986-5l6od2b983jni2oc5h82i63l5fomjvs0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:103629772986:android:646e1bbf2298374b638a83",
+        "android_client_info": {
+          "package_name": "ze.feF.fefe"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "103629772986-5l6od2b983jni2oc5h82i63l5fomjvs0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBnCdGLwb9N8GtneASkIFjLBKW-p2_dxdY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "103629772986-5l6od2b983jni2oc5h82i63l5fomjvs0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

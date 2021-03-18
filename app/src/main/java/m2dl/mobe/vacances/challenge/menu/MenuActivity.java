@@ -7,6 +7,10 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
+
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import m2dl.mobe.vacances.challenge.R;
 import m2dl.mobe.vacances.challenge.credits.CreditsActivity;
@@ -37,6 +41,12 @@ public class MenuActivity extends Activity {
 
     public void launchGame(View v) {
         startActivity(new Intent(MenuActivity.this, GameActivity.class));
+    }
+
+    public void checkFirebaseDatabase(View v) {
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference myRef = database.getReference("message").child("test");
+        myRef.setValue("Hello, World!");
     }
 
     public void launchRules(View v) {
