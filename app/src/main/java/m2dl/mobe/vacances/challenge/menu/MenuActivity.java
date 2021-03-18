@@ -15,11 +15,12 @@ import com.google.firebase.database.FirebaseDatabase;
 import m2dl.mobe.vacances.challenge.R;
 import m2dl.mobe.vacances.challenge.credits.CreditsActivity;
 import m2dl.mobe.vacances.challenge.game.GameActivity;
+import m2dl.mobe.vacances.challenge.game.mobengine.activities.SoundActivity;
 import m2dl.mobe.vacances.challenge.rules.RulesActivity;
 import m2dl.mobe.vacances.challenge.scores.ScoresActivity;
 import m2dl.mobe.vacances.challenge.settings.SettingsActivity;
 
-public class MenuActivity extends Activity {
+public class MenuActivity extends SoundActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

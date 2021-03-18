@@ -5,8 +5,9 @@ import android.os.Bundle;
 import android.view.View;
 
 import m2dl.mobe.vacances.challenge.R;
+import m2dl.mobe.vacances.challenge.game.mobengine.activities.SoundActivity;
 
-public class ScoresActivity extends Activity {
+public class ScoresActivity extends SoundActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

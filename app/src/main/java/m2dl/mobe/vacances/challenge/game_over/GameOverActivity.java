@@ -8,10 +8,11 @@ import android.widget.TextView;
 
 import m2dl.mobe.vacances.challenge.R;
 import m2dl.mobe.vacances.challenge.game.GameActivity;
+import m2dl.mobe.vacances.challenge.game.mobengine.activities.SoundActivity;
 import m2dl.mobe.vacances.challenge.menu.MenuActivity;
 import m2dl.mobe.vacances.challenge.scores.ScoresActivity;
 
-public class GameOverActivity extends Activity {
+public class GameOverActivity extends SoundActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

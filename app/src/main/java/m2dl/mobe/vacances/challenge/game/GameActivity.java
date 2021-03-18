@@ -8,9 +8,11 @@ import android.view.View;
 import java.util.Random;
 
 import m2dl.mobe.vacances.challenge.R;
+import m2dl.mobe.vacances.challenge.game.mobengine.activities.MobeGameActivity;
+import m2dl.mobe.vacances.challenge.game.mobengine.activities.SoundActivity;
 import m2dl.mobe.vacances.challenge.game_over.GameOverActivity;
 
-public class GameActivity extends Activity {
+public class GameActivity extends MobeGameActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

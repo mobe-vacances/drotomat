@@ -1,6 +1,7 @@
 package m2dl.mobe.vacances.challenge.game.mobengine.utils;
 
-import helloandroid.m2dl.coronattack.game.mobengine.resource_stores.SoundStore;
+
+import m2dl.mobe.vacances.challenge.game.mobengine.resource_stores.SoundStore;
 
 public class ActiveActivitiesTracker {
     private static int nActivities = 0;
