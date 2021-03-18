@@ -1,0 +1,47 @@
+<resources>
+    <string name="app_name">Le nom du jeu</string>
+
+    <string name="subtitle">ici il faut décrire un peu le jeu, tout ça</string>
+
+    <string name="default_player_name">Joueur</string>
+
+    <string name="launch_game_button">Jouer</string>
+    <string name="launch_rules_button">Règles</string>
+    <string name="launch_scores_button">Scores</string>
+    <string name="launch_settings_button">Règlages</string>
+    <string name="launch_credits_button">Crédits</string>
+
+    <string name="back_button">Retour</string>
+
+    <string name="game_over_title">NUL</string>
+    <string name="game_over_your_score_is">Score : %1$d</string>
+    <string name="game_over_your_highscore_is">Record : %1$d</string>
+
+    <string name="rules_title">Règles</string>
+    <string name="rules_text">expliquer des trucs là</string>
+
+    <string name="scores_title">Scores</string>
+
+    <string name="settings_title">Règlages</string>
+
+    <string name="restart_btn">Recommencer</string>
+
+    <string name="credits_title">Crédits</string>
+    <string name="credits_text">Projet réalisé lors du MOBE Challenge 2021 du Master Développement Logiciel de l\'Université Toulouse 3 Paul Sabatier.
+
+        \n\nÉquipe Vacances\n\n
+
+        ANDRE Nicolas\n
+        DELCOURT Kévin\n
+        FRANZESE Alessandra\n
+        RODRIGUEZ Nils\n\n
+
+        Encadrement\n\n
+
+        DA COSTA Georges\n
+        LIEVRE Mathieu\n\n
+
+        Images : \n
+        Sons :
+    </string>
+</resources>
