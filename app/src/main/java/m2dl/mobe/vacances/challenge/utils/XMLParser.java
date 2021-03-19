@@ -14,6 +14,7 @@ import java.util.List;
 
 import m2dl.mobe.vacances.challenge.R;
 import m2dl.mobe.vacances.challenge.level.PlateformeDure;
+import m2dl.mobe.vacances.challenge.level.PlateformeFlick;
 import m2dl.mobe.vacances.challenge.level.aPlateforme;
 
 public class XMLParser {
@@ -76,7 +77,13 @@ public class XMLParser {
 
                 if(eventType == XmlPullParser.START_TAG && xrp.getName().equals("PlateformeDure"))
                 {
-                    objects.add(buildRectangleDure(xrp));
+                    objects.add(buildPlateformeDure(xrp));
+
+                }
+
+                if(eventType == XmlPullParser.START_TAG && xrp.getName().equals("PlateformeFlick"))
+                {
+                    objects.add(buildPlateformeFlick(xrp));
 
                 }
 
@@ -92,7 +99,7 @@ public class XMLParser {
         return objects;
     }
 
-    private PlateformeDure buildRectangleDure(XmlResourceParser xrp) {
+    private PlateformeDure buildPlateformeDure(XmlResourceParser xrp) {
         List<Integer> rect = new ArrayList<>();
         int eventType = 0;
         try {
@@ -112,6 +119,28 @@ public class XMLParser {
             e.printStackTrace();
         }
         return new PlateformeDure(rect.get(0),rect.get(1),rect.get(2),rect.get(3));
+    }
+
+    private PlateformeFlick buildPlateformeFlick(XmlResourceParser xrp) {
+        List<Integer> rect = new ArrayList<>();
+        int eventType = 0;
+        try {
+            eventType = xrp.getEventType();
+            String name = xrp.getName();
+            System.out.println(name + " " + eventType + " " + XmlPullParser.END_TAG);
+            while (eventType != XmlPullParser.END_TAG || !name.equals("PlateformeFlick")){
+                if(eventType == XmlPullParser.TEXT){
+                    rect.add(Integer.parseInt(xrp.getText()));
+                }
+                eventType = xrp.next();
+                name = xrp.getName();
+            }
+        } catch (XmlPullParserException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return new PlateformeFlick(rect.get(0),rect.get(1),rect.get(2),rect.get(3),rect.get(4));
     }
 
 

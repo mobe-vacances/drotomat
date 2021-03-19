@@ -13,6 +13,7 @@ import m2dl.mobe.vacances.challenge.game.mobengine.core.GameEngine;
 import m2dl.mobe.vacances.challenge.game_over.GameOverActivity;
 import m2dl.mobe.vacances.challenge.level.PlateformeDure;
 import m2dl.mobe.vacances.challenge.level.aPlateforme;
+import m2dl.mobe.vacances.challenge.onTouch.onTouchListener;
 import m2dl.mobe.vacances.challenge.utils.XMLParser;
 
 public class GameActivity extends MobeGameActivity {
@@ -23,6 +24,7 @@ public class GameActivity extends MobeGameActivity {
 
         Background background = new Background();
 
+        getGameView().setOnTouchListener(new onTouchListener());
 
         GameEngine.reset();
         GameEngine.addGameElements(

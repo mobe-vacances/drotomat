@@ -14,6 +14,7 @@ public abstract class aPlateforme implements Drawable {
 
     private RectF rectangle;
     Paint fillPaint = new Paint();
+    Paint borderPaint;
 
     public aPlateforme(int left , int top, int right, int bottom) {
         this.rectangle = new RectF(left,
@@ -22,13 +23,7 @@ public abstract class aPlateforme implements Drawable {
                 bottom);
     }
 
-    void initPaints() {
-
-        // fill
-        fillPaint.setStyle(Paint.Style.FILL);
-        fillPaint.setColor(Color.YELLOW);
-
-    }
+    public abstract void initPaints();
 
     @Override
     public int getZIndex() {
@@ -39,6 +34,9 @@ public abstract class aPlateforme implements Drawable {
     public void draw(Canvas canvas) {
         initPaints();
         canvas.drawRect(rectangle, fillPaint);
+        if(borderPaint != null){
+            canvas.drawRect(rectangle, borderPaint);
+        }
 
     }
 
