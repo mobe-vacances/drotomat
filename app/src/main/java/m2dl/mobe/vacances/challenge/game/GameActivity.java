@@ -9,12 +9,8 @@ import java.util.Random;
 import m2dl.mobe.vacances.challenge.game.background.Background;
 import m2dl.mobe.vacances.challenge.game.mobengine.activities.MobeGameActivity;
 import m2dl.mobe.vacances.challenge.game.mobengine.core.GameEngine;
-import m2dl.mobe.vacances.challenge.game.mobengine.activities.SoundActivity;
-import m2dl.mobe.vacances.challenge.game.mobengine.core.GameEngine;
 import m2dl.mobe.vacances.challenge.game.player.Player;
 import m2dl.mobe.vacances.challenge.game_over.GameOverActivity;
-import m2dl.mobe.vacances.challenge.level.PlateformeDure;
-import m2dl.mobe.vacances.challenge.level.aPlateforme;
 import m2dl.mobe.vacances.challenge.utils.XMLParser;
 
 public class GameActivity extends MobeGameActivity {

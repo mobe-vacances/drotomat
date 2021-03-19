@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import m2dl.mobe.vacances.challenge.R;
-import m2dl.mobe.vacances.challenge.level.aPlateforme;
+import m2dl.mobe.vacances.challenge.game.level.aPlateforme;
 
 public class XMLParser {
 

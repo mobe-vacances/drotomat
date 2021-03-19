@@ -8,11 +8,7 @@ import m2dl.mobe.vacances.challenge.game.mobengine.core.Drawable;
 import m2dl.mobe.vacances.challenge.game.mobengine.core.Updatable;
 
 
-public class Background implements Drawable, Updatable {
-
-    private double intensity = 0.0;
-
-    private double targetIntensity = 0.0;
+public class Background implements Drawable {
 
     @Override
     public int getZIndex() {
@@ -21,13 +17,7 @@ public class Background implements Drawable, Updatable {
 
     @Override
     public void draw(Canvas canvas) {
-        canvas.drawColor(Color.WHITE
-        );
-    }
-
-    @Override
-    public void update(int delta) {
-
+        canvas.drawColor(Color.WHITE);
     }
 
 }

@@ -1,34 +1,25 @@
-package m2dl.mobe.vacances.challenge.level;
+package m2dl.mobe.vacances.challenge.game.platform;
 
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Rect;
-import android.graphics.RectF;
-
 
 import m2dl.mobe.vacances.challenge.game.mobengine.core.Drawable;
-import m2dl.mobe.vacances.challenge.game.mobengine.core.Updatable;
 
-public abstract class aPlateforme implements Drawable {
+public abstract class Platform implements Drawable {
 
-    private RectF rectangle;
+    private final Rect rectangle;
     Paint fillPaint = new Paint();
 
-    public aPlateforme(int left , int top, int right, int bottom) {
-        this.rectangle = new RectF(left,
+    public Platform(int left , int top, int right, int bottom) {
+        this.rectangle = new Rect(left,
                 top,
                 right,
                 bottom);
-    }
-
-    void initPaints() {
-
-        // fill
-        fillPaint.setStyle(Paint.Style.FILL);
         fillPaint.setColor(Color.YELLOW);
-
     }
+
 
     @Override
     public int getZIndex() {
@@ -37,11 +28,8 @@ public abstract class aPlateforme implements Drawable {
 
     @Override
     public void draw(Canvas canvas) {
-        initPaints();
         canvas.drawRect(rectangle, fillPaint);
-
     }
 
-    public abstract void doSomething();
-
 }
+
