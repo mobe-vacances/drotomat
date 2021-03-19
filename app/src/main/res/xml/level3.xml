@@ -36,9 +36,9 @@
 
         <PlateformeDure>
             <left>650</left>
-            <top>1000</top>
+            <top>750</top>
             <right>800</right>
-            <bottom>1050</bottom>
+            <bottom>800</bottom>
         </PlateformeDure>
 
         <Start>
@@ -48,9 +48,9 @@
 
         <Goal>
             <left>700</left>
-            <top>900</top>
+            <top>650</top>
             <right>800</right>
-            <bottom>1000</bottom>
+            <bottom>750</bottom>
         </Goal>
 
     </Plateformes>
