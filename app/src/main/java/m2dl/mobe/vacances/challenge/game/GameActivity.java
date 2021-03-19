@@ -1,6 +1,5 @@
 package m2dl.mobe.vacances.challenge.game;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -9,7 +8,8 @@ import java.util.Random;
 
 import m2dl.mobe.vacances.challenge.R;
 import m2dl.mobe.vacances.challenge.game.mobengine.activities.MobeGameActivity;
-import m2dl.mobe.vacances.challenge.game.mobengine.activities.SoundActivity;
+import m2dl.mobe.vacances.challenge.game.mobengine.sensors.SensorManagerService;
+import m2dl.mobe.vacances.challenge.game.player.AccelerometerEventListener;
 import m2dl.mobe.vacances.challenge.game_over.GameOverActivity;
 
 public class GameActivity extends MobeGameActivity {
@@ -17,6 +17,10 @@ public class GameActivity extends MobeGameActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        SensorManagerService.requestSensorManager(this);
+        SensorManagerService.addSensorListeners(
+                new AccelerometerEventListener(this)
+        );
         setContentView(R.layout.activity_game); // À ENLEVER QUAND IL Y AURA UN VRAI JEU
     }
 
