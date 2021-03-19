@@ -12,15 +12,15 @@
         </PlateformeDure>
 
         <PlateformeFlick>
-            <left>200</left>
+            <left>250</left>
             <top>850</top>
-            <right>300</right>
+            <right>350</right>
             <bottom>900</bottom>
             <type>2</type>
         </PlateformeFlick>
 
         <PlateformeDure>
-            <left>300</left>
+            <left>350</left>
             <top>850</top>
             <right>400</right>
             <bottom>900</bottom>
@@ -35,7 +35,7 @@
         </PlateformeFlick>
 
         <PlateformeDure>
-            <left>500</left>
+            <left>650</left>
             <top>1000</top>
             <right>800</right>
             <bottom>1050</bottom>
