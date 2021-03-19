@@ -59,7 +59,7 @@ public class Player implements Drawable, Updatable {
     public void draw(Canvas canvas) {
         if (ySpeed != 0.0) {
             canvas.drawBitmap(
-                    Bitmap.createScaledBitmap(BitmapStore.getBitmap(xSpeed > 0 ? R.drawable.player_jump : R.drawable.player_jump_revert), rect.width(), rect.height(), false),
+                    Bitmap.createScaledBitmap(BitmapStore.getBitmap(xSpeed < 0 ? R.drawable.player_jump : R.drawable.player_jump_revert), rect.width(), rect.height(), false),
                     rect.left, rect.top,
                     null
             );
