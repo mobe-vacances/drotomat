@@ -21,8 +21,8 @@ public class VibratorService {
     }
 
     public static void heavyClick() {
-        if(vibrationsActive && vibrator != null && vibrator.hasVibrator()) {
-            vibrator.vibrate(VibrationEffect.createPredefined(VibrationEffect.EFFECT_HEAVY_CLICK));
+        if(vibrationsActive && vibrator != null){
+            VibratorService.get().vibrate(VibrationEffect.createOneShot(30, VibrationEffect.DEFAULT_AMPLITUDE));
         }
     }
 
