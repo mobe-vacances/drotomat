@@ -1,5 +1,7 @@
 package m2dl.mobe.vacances.challenge.game;
 
+import android.graphics.Color;
+
 import m2dl.mobe.vacances.challenge.R;
 
 public class Constants {
@@ -42,8 +44,28 @@ public class Constants {
     public static final float PLAYER_X_INERTIA = 0.0003f;
     public static final float PLAYER_X_ACCELERATION = 0.00005f;
 
+    public static final double PLAYER_DEATH_PARTICLE_MIN_SPEED = 0.05;
+    public static final double PLAYER_DEATH_PARTICLE_MAX_SPEED = 0.5;
+    public static final int PLAYER_DEATH_PARTICLE_NUMBER = 10;
+    public static final float PLAYER_DEATH_PARTICLE_MIN_RADIUS = 2.0f;
+    public static final float PLAYER_DEATH_PARTICLE_MAX_RADIUS = 10.0f;
+    public static final int[] PLAYER_DEATH_PARTICLE_COLORS = {
+            Color.rgb(189,24,45),
+            Color.rgb(255,20,111),
+            Color.rgb(216,78,32)
+    };
+
+    public static final int[] VICTORY_PARTICLE_COLORS = {
+            Color.rgb(255,224,125),
+            Color.rgb(174,219,129),
+            Color.rgb(139, 179, 234),
+            Color.rgb(195, 175, 240)
+    };
+
     public static final int Z_INDEX_PLAYER = 100;
 
     public static final int BACKGROUND_Z_INDEX = 0;
     public static final int LEVEL_Z_INDEX = 152;
+
+    public static final double PARTICLE_DECELERATION = 0.00007;
 }

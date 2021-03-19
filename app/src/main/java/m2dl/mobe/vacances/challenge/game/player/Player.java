@@ -11,10 +11,13 @@ import java.util.List;
 
 import m2dl.mobe.vacances.challenge.R;
 import m2dl.mobe.vacances.challenge.game.Constants;
+import m2dl.mobe.vacances.challenge.game.end_animation.Particle;
 import m2dl.mobe.vacances.challenge.game.mobengine.core.Drawable;
+import m2dl.mobe.vacances.challenge.game.mobengine.core.GameEngine;
 import m2dl.mobe.vacances.challenge.game.mobengine.core.Updatable;
 import m2dl.mobe.vacances.challenge.game.mobengine.resource_stores.BitmapStore;
 import m2dl.mobe.vacances.challenge.game.mobengine.utils.DisplayScale;
+import m2dl.mobe.vacances.challenge.game.mobengine.utils.RandomService;
 import m2dl.mobe.vacances.challenge.game.platform.Platform;
 
 public class Player implements Drawable, Updatable {
@@ -125,7 +128,7 @@ public class Player implements Drawable, Updatable {
         rect.offsetTo((int) x, (int) y);
 
         if(!Rect.intersects(rect, DisplayScale.getRect())) {
-            System.out.println("Perdu");
+            spawnPlayerDeathParticles(DisplayScale.getRect().exactCenterX(), DisplayScale.getRect().exactCenterY());
         }
     }
 
@@ -159,15 +162,6 @@ public class Player implements Drawable, Updatable {
         this.currentPlatforms.remove(platform);
     }
 
-    public void setX(float x) {
-        this.x = x;
-        this.rect.offsetTo((int)x,(int)y);
-    }
-
-    public void setY(float y) {
-        this.y = y;
-        this.rect.offsetTo((int)x,(int)y);
-    }
 
     public void setXY(float x, float y){
         this.x = x;
@@ -188,4 +182,16 @@ public class Player implements Drawable, Updatable {
         return this.canMove;
     }
 
+    private static void spawnPlayerDeathParticles(float x, float y) {
+            for (int i = Constants.PLAYER_DEATH_PARTICLE_NUMBER; i > 0; i--) {
+                GameEngine.addGameElements(new Particle(
+                        x,
+                        y,
+                        RandomService.nextFloatBetween(Constants.PLAYER_DEATH_PARTICLE_MIN_RADIUS, Constants.PLAYER_DEATH_PARTICLE_MAX_RADIUS),
+                        RandomService.nextDoubleBetween(Constants.PLAYER_DEATH_PARTICLE_MIN_SPEED, Constants.PLAYER_DEATH_PARTICLE_MAX_SPEED),
+                        2 * Math.PI * RandomService.get().nextDouble(),
+                        Constants.PLAYER_DEATH_PARTICLE_COLORS[RandomService.get().nextInt(Constants.PLAYER_DEATH_PARTICLE_COLORS.length)]
+                ));
+            }
+    }
 }

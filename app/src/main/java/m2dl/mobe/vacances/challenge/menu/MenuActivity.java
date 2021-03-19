@@ -10,8 +10,6 @@ import android.widget.EditText;
 import m2dl.mobe.vacances.challenge.Levels;
 import m2dl.mobe.vacances.challenge.R;
 import m2dl.mobe.vacances.challenge.credits.CreditsActivity;
-import m2dl.mobe.vacances.challenge.firebase.FirebaseInstallationService;
-import m2dl.mobe.vacances.challenge.firebase.GlobalHighscoresHandler;
 import m2dl.mobe.vacances.challenge.game.Constants;
 import m2dl.mobe.vacances.challenge.game.GameActivity;
 import m2dl.mobe.vacances.challenge.game.mobengine.activities.SoundActivity;
@@ -45,8 +43,6 @@ public class MenuActivity extends SoundActivity {
         VibratorService.requestVibrator(this);
         BitmapStore.decodeBitmaps(Constants.USED_BITMAPs_IDS, getResources());
         SoundStore.createMediaPlayers(Constants.USED_SOUNDS_IDS, this);
-        FirebaseInstallationService.init();
-        GlobalHighscoresHandler.init();
 
         SharedPreferences settingsPreferences = getSharedPreferences("settings", Context.MODE_PRIVATE);
         SoundStore.setMasterVolume(settingsPreferences.getFloat("volume", 1f));
