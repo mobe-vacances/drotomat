@@ -24,6 +24,8 @@ public class Player implements Drawable, Updatable {
 
     private Rect rect;
 
+    private boolean jumping = true;
+
     private final Paint paint = new Paint();
 
     public Player(float x, float y) {
@@ -54,20 +56,29 @@ public class Player implements Drawable, Updatable {
 
     @Override
     public void update(int delta) {
-
         yAcceleration = Math.min(0, yAcceleration + Constants.PLAYER_Y_INERTIA*delta);
 
+        System.out.println(yAcceleration);
+
         xSpeed = Math.max(-1*Constants.PLAYER_MAX_X_SPEED, Math.min(xSpeed + xAcceleration*delta, Constants.PLAYER_MAX_Y_SPEED));
-        ySpeed = Math.max(-1*Constants.PLAYER_MAX_Y_SPEED, Math.min(ySpeed + Constants.PLAYER_GRAVITY*delta + yAcceleration*delta, Constants.PLAYER_MAX_Y_SPEED));
+        if(jumping) {
+            ySpeed = Math.max(-1*Constants.PLAYER_MAX_Y_SPEED, Math.min(ySpeed + Constants.PLAYER_GRAVITY*delta + yAcceleration*delta, Constants.PLAYER_MAX_Y_SPEED));
+            if(ySpeed > 0 && DisplayScale.getRect().bottom <= rect.bottom) {
+                ySpeed = 0;
+                jumping = false;
+            }
+        }
 
         x += xSpeed * delta;
-        y = Math.min(y + ySpeed * delta, DisplayScale.getRect().bottom - Constants.PLAYER_HEIGHT) ;
-
+        y += ySpeed * delta;
 
         rect.offsetTo((int)x,(int)y);
     }
 
     public void jump() {
-        yAcceleration = Constants.PLAYER_JUMP_ACCELERATION;
+        if(ySpeed == 0) {
+            jumping = true;
+            yAcceleration = Constants.PLAYER_JUMP_ACCELERATION;
+        }
     }
 }
