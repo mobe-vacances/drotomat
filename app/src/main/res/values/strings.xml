@@ -1,7 +1,7 @@
 <resources>
-    <string name="app_name">Le nom du jeu</string>
+    <string name="app_name">Dro\'Tomat</string>
 
-    <string name="subtitle">ici il faut décrire un peu le jeu, tout ça</string>
+    <string name="subtitle">Guide Dro\'Tomat vers l\'arc-en-ciel</string>
 
     <string name="default_player_name">Joueur</string>
 
@@ -18,7 +18,16 @@
     <string name="game_over_your_highscore_is">Record personnel : %1$d</string>
 
     <string name="rules_title">Règles</string>
-    <string name="rules_text">expliquer des trucs là</string>
+    <string name="rules_text">"Aide Dro\'Tomat à atteindre l\'arc-en-ciel sans tomber dans le vide !\n\n
+
+Pour cela, Dro\'Tomat se déplace automatiquement.
+
+En secouant la tablette, tu peux le faire sauter pour éviter de tomber dans les trous.
+
+En masquant le capteur de luminosité, il change de direction.
+
+Fait attention aux plateformes avec des pointillés, elles ne sont pas actives. Pour cela, tu dois appuyer sur l\'écran, mais cela en désactive d'autres."
+    </string>
 
     <string name="scores_title">Scores</string>
     <string name="levels_title">Levels</string>
@@ -44,7 +53,14 @@
         DA COSTA Georges\n
         LIEVRE Mathieu\n\n
 
-        Images : \n
-        Sons :
+        - Images : FRANZESE Alessandra\n
+        - Sons :\n
+            Connum - https://freesound.org/s/12693/ \n
+            SergeyIonov - https://freesound.org/s/467373/ \n
+            razrox - https://freesound.org/s/197179/ \n
+            Joao_Janz - https://freesound.org/s/482653/ \n
+            Vilkas_Sound - https://freesound.org/s/460475/ \n
+            old_waveplay - https://freesound.org/s/399934/ \n
+            Sharka - Final Fantasy Victory Theme (FAIL RECORDER) http://www.mariopiano.com/
     </string>
 </resources>
