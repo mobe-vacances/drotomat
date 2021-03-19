@@ -31,15 +31,14 @@ public class GameActivity extends MobeGameActivity {
         GameEngine.addGameElements(
                 player,
                 new Background(),
-                new SolidPlatform(0,800,400,900, player),
-                new SolidPlatform(400,700,1000,800, player)
-                background
+                new SolidPlatform(0,800,200,900, player),
+                new SolidPlatform(250,700,1000,800, player)
         );
 
         SensorManagerService.requestSensorManager(this);
         SensorManagerService.addSensorListeners(
-                new AccelerometerEventListener(p),
-                new LightEventListener(p)
+                new AccelerometerEventListener(player),
+                new LightEventListener(player)
         );
 
     }

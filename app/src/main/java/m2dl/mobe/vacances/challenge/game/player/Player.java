@@ -117,8 +117,6 @@ public class Player implements Drawable, Updatable {
                 ySpeed = 0;
                 jumping = false;
                 y = currentPlatform.getRectangle().top - Constants.PLAYER_HEIGHT;
-
-                jump();
             }
         }
 
