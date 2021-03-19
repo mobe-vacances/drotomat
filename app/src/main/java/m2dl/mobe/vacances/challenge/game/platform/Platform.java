@@ -10,11 +10,11 @@ import m2dl.mobe.vacances.challenge.game.player.Player;
 
 public abstract class Platform implements Drawable {
 
-    private final Rect rectangle;
+    protected final Rect rectangle;
     protected Paint fillPaint = new Paint();
     protected Paint borderPaint = null;
 
-    private final Player player;
+    protected final Player player;
 
     public Platform(int left , int top, int right, int bottom, Player player) {
         this.rectangle = new Rect(left,

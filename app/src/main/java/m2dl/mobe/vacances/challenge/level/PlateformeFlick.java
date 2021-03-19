@@ -1,8 +1,10 @@
 package m2dl.mobe.vacances.challenge.level;
 
+import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.DashPathEffect;
 import android.graphics.Paint;
+import android.graphics.Rect;
 
 import m2dl.mobe.vacances.challenge.game.flickPlateformes.Flicker;
 import m2dl.mobe.vacances.challenge.game.platform.Platform;
@@ -64,5 +66,21 @@ public class PlateformeFlick extends Platform {
 
     public void switchPlateform(){
         this.state = !this.state;
+    }
+
+    @Override
+    public void draw(Canvas canvas) {
+        if (state && Rect.intersects(player.getRect(), rectangle)) {
+            player.addCurrentPlatform(this);
+        } else {
+            player.removeCurrentPlatform(this);
+        }
+
+        initPaints();
+        canvas.drawRect(rectangle, fillPaint);
+
+        if(borderPaint != null) {
+            canvas.drawRect(rectangle, borderPaint);
+        }
     }
 }
