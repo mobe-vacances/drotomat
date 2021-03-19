@@ -16,6 +16,7 @@ import m2dl.mobe.vacances.challenge.game.mobengine.core.Drawable;
 import m2dl.mobe.vacances.challenge.game.mobengine.core.GameEngine;
 import m2dl.mobe.vacances.challenge.game.mobengine.core.Updatable;
 import m2dl.mobe.vacances.challenge.game.mobengine.resource_stores.BitmapStore;
+import m2dl.mobe.vacances.challenge.game.mobengine.resource_stores.SoundStore;
 import m2dl.mobe.vacances.challenge.game.mobengine.utils.DisplayScale;
 import m2dl.mobe.vacances.challenge.game.mobengine.utils.RandomService;
 import m2dl.mobe.vacances.challenge.game.mobengine.utils.VibratorService;
@@ -35,8 +36,6 @@ public class Player implements Drawable, Updatable {
     private int direction = 1;
 
     private Rect rect;
-
-    private boolean jumping = true;
 
     private boolean canMove;
 
@@ -135,6 +134,7 @@ public class Player implements Drawable, Updatable {
 
     public void jump() {
         if (ySpeed == 0) {
+            SoundStore.playSound(R.raw.jump,80);
             yAcceleration = Constants.PLAYER_JUMP_ACCELERATION;
             VibratorService.heavyClick();
         }

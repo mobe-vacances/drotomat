@@ -43,6 +43,7 @@ public class MenuActivity extends SoundActivity {
         VibratorService.requestVibrator(this);
         BitmapStore.decodeBitmaps(Constants.USED_BITMAPs_IDS, getResources());
         SoundStore.createMediaPlayers(Constants.USED_SOUNDS_IDS, this);
+        SoundStore.createMediaPlayers(new int[]{R.raw.click},this);
 
         SharedPreferences settingsPreferences = getSharedPreferences("settings", Context.MODE_PRIVATE);
         SoundStore.setMasterVolume(settingsPreferences.getFloat("volume", 1f));
@@ -54,17 +55,22 @@ public class MenuActivity extends SoundActivity {
     public void launchLevels(View v) {
         startActivity(new Intent(MenuActivity.this, Levels.class));
         VibratorService.heavyClick();
+        SoundStore.playSound(R.raw.click,100);
+        SoundStore.stopLoopedSound(R.raw.menu);
     }
 
     public void launchRules(View v) {
+        SoundStore.playSound(R.raw.click,100);
         startActivity(new Intent(MenuActivity.this, RulesActivity.class));
     }
 
     public void launchSettings(View v) {
+        SoundStore.playSound(R.raw.click,100);
         startActivity(new Intent(MenuActivity.this, SettingsActivity.class));
     }
 
     public void launchCredits(View v) {
+        SoundStore.playSound(R.raw.click,100);
         startActivity(new Intent(MenuActivity.this, CreditsActivity.class));
     }
 }
