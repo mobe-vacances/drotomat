@@ -15,7 +15,7 @@ import m2dl.mobe.vacances.challenge.interaction.Press;
 public class OnTouchListener implements View.OnTouchListener {
 
     GameActivity activity;
-    static StateTouch stateTouch = StateTouch.WAITING_START;
+    public static StateTouch stateTouch = StateTouch.WAITING_START;
     ;
     private boolean oneTime = false;
 
