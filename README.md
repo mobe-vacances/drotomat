@@ -1,4 +1,4 @@
-# Le nom du jeu
+# Dro'Tomat
 
 Projet réalisé lors du MOBE Challenge 2021 du Master Développement Logiciel de l'Université Toulouse 3 Paul Sabatier. *19/03/2021*
 
@@ -16,9 +16,21 @@ Projet réalisé lors du MOBE Challenge 2021 du Master Développement Logiciel d
 
 # Le jeu
 
-il fait quoi le jeu ?
+Le but du jeu est d\'arrivé à l\'arc en ciel sans tomber dans le vide !\n
+Pour cela, le personnage se déplace automatiquement vers la droite. \n
+En secouant la tablette, tu peux faire sauter le personnage. \n
+En assombrissant le capteur de luminosité, le personnage change de direction vers la gauche.\n
+Fait attention aux plateformes avec des pointillés, elles ne sont pas actives. Pour cela, tu dois appuyé sur l'écran, mais ça pourra en désactiver d'autres.\n
 
 # Crédits
 
-- Images :
+- Images : FRANZESE Alessandra
 - Sons :
+    Connum - https://freesound.org/s/12693/\n
+    SergeyIonov - https://freesound.org/s/467373/\n
+    razrox - https://freesound.org/s/197179/\n
+    Joao_Janz - https://freesound.org/s/482653/\n
+    Vilkas_Sound - https://freesound.org/s/460475/\n
+    old_waveplay - https://freesound.org/s/399934/
+    Sharka - Final Fantasy Victory Theme (FAIL RECORDER) \n
+    http://www.mariopiano.com/

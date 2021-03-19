@@ -18,7 +18,16 @@
     <string name="game_over_your_highscore_is">Record personnel : %1$d</string>
 
     <string name="rules_title">Règles</string>
-    <string name="rules_text">expliquer des trucs là</string>
+    <string name="rules_text">Le but du jeu est d\'arrivé à l\'arc en ciel sans tomber dans le vide !\n
+        Pour cela, le personnage se déplace automatiquement vers la droite. \n
+        En secouant la tablette, tu peux faire sauter le personnage. \n
+        En assombrissant le capteur de luminosité, le personnage change de direction vers la gauche.\n
+        Fait attention aux plateformes avec des pointillés, elles ne sont pas actives. Pour cela, tu dois appuyé sur l'écran, mais ça pourra en désactiver d'autres.\n
+
+
+
+
+    </string>
 
     <string name="scores_title">Scores</string>
 
