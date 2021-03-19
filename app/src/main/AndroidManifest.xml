@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="m2dl.mobe.vacances.challenge">
 
+    <uses-permission android:name="android.permission.VIBRATE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -9,13 +11,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Challenge">
-        <activity android:name=".game_over.GameOverActivity"></activity>
-        <activity android:name=".game.GameActivity" />
-        <activity android:name=".scores.ScoresActivity" />
-        <activity android:name=".settings.SettingsActivity" />
-        <activity android:name=".credits.CreditsActivity" />
-        <activity android:name=".rules.RulesActivity" />
-        <activity android:name=".menu.MenuActivity">
+        <activity android:name=".game_over.GameOverActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".game.GameActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".scores.ScoresActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".settings.SettingsActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".credits.CreditsActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".rules.RulesActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".menu.MenuActivity" android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

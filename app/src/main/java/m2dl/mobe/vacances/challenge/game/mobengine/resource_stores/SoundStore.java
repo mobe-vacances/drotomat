@@ -14,7 +14,7 @@ public class SoundStore {
 
     private static final List<MediaPlayer> pausedMediaPlayers = new ArrayList<>();
 
-    private static boolean mute = false;
+    private static float masterVolume = 1.0f;
 
     public static void createMediaPlayers(int[] soundIds, Context context) {
         for(Integer soundId : soundIds) {
@@ -30,20 +30,17 @@ public class SoundStore {
     }
 
     public static void playSound(int soundId, float volume) {
-        if(!mute) {
-            mediaPlayerMap.get(soundId).setVolume(volume, volume);
-            mediaPlayerMap.get(soundId).seekTo(0);
-            mediaPlayerMap.get(soundId).start();
-        }
+        mediaPlayerMap.get(soundId).setVolume(masterVolume*volume, masterVolume*volume);
+        mediaPlayerMap.get(soundId).seekTo(0);
+        mediaPlayerMap.get(soundId).start();
     }
 
     public static void loopSound(int soundId, float volume) {
-        if(!mute){
-            mediaPlayerMap.get(soundId).setLooping(true);
-            mediaPlayerMap.get(soundId).setVolume(volume, volume);
-            mediaPlayerMap.get(soundId).seekTo(0);
-            mediaPlayerMap.get(soundId).start();
-        }
+        mediaPlayerMap.get(soundId).setLooping(true);
+        mediaPlayerMap.get(soundId).setVolume(masterVolume*volume, masterVolume*volume);
+        mediaPlayerMap.get(soundId).seekTo(0);
+        mediaPlayerMap.get(soundId).start();
+
     }
 
     public static void stopLoopedSound(int soundId) {
@@ -67,11 +64,15 @@ public class SoundStore {
         pausedMediaPlayers.clear();
     }
 
-    public static boolean isMute() {
-        return mute;
+    public static float getMasterVolume() {
+        return masterVolume;
     }
 
-    public static void setMute(boolean mute) {
-        SoundStore.mute = mute;
+    public static void setMasterVolume(float masterVolume) {
+        SoundStore.masterVolume = masterVolume;
+    }
+
+    public static Map<Integer, MediaPlayer> getMediaPlayerMap() {
+        return mediaPlayerMap;
     }
 }

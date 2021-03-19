@@ -8,8 +8,11 @@ import android.widget.TextView;
 
 import m2dl.mobe.vacances.challenge.R;
 import m2dl.mobe.vacances.challenge.firebase.HighscoreHandler;
+import m2dl.mobe.vacances.challenge.game.Constants;
 import m2dl.mobe.vacances.challenge.game.GameActivity;
 import m2dl.mobe.vacances.challenge.game.mobengine.activities.SoundActivity;
+import m2dl.mobe.vacances.challenge.game.mobengine.resource_stores.SoundStore;
+import m2dl.mobe.vacances.challenge.game.mobengine.utils.VibratorService;
 import m2dl.mobe.vacances.challenge.menu.MenuActivity;
 import m2dl.mobe.vacances.challenge.scores.Score;
 import m2dl.mobe.vacances.challenge.scores.ScoresActivity;
@@ -44,6 +47,7 @@ public class GameOverActivity extends SoundActivity {
                 )
         );
 
+        SoundStore.loopSound(R.raw.menu, Constants.VOLUME_MENU_MUSIC);
     }
 
     public void launchScores(View v) {
@@ -56,6 +60,8 @@ public class GameOverActivity extends SoundActivity {
 
     public void restart(View v) {
         startActivity(new Intent(GameOverActivity.this, GameActivity.class));
+        VibratorService.heavyClick();
+        SoundStore.stopLoopedSound(R.raw.menu);
         finish();
     }
 }

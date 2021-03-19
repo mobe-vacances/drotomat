@@ -16,8 +16,13 @@ import m2dl.mobe.vacances.challenge.R;
 import m2dl.mobe.vacances.challenge.credits.CreditsActivity;
 import m2dl.mobe.vacances.challenge.firebase.FirebaseInstallationService;
 import m2dl.mobe.vacances.challenge.firebase.GlobalHighscoresHandler;
+import m2dl.mobe.vacances.challenge.game.Constants;
 import m2dl.mobe.vacances.challenge.game.GameActivity;
 import m2dl.mobe.vacances.challenge.game.mobengine.activities.SoundActivity;
+import m2dl.mobe.vacances.challenge.game.mobengine.resource_stores.BitmapStore;
+import m2dl.mobe.vacances.challenge.game.mobengine.resource_stores.SoundStore;
+import m2dl.mobe.vacances.challenge.game.mobengine.utils.PermissionUtil;
+import m2dl.mobe.vacances.challenge.game.mobengine.utils.VibratorService;
 import m2dl.mobe.vacances.challenge.rules.RulesActivity;
 import m2dl.mobe.vacances.challenge.scores.ScoresActivity;
 import m2dl.mobe.vacances.challenge.settings.SettingsActivity;
@@ -41,18 +46,24 @@ public class MenuActivity extends SoundActivity {
 
         editText.addTextChangedListener(new UsernameChangedListener(preferences));
 
+        PermissionUtil.checkAndRequestAllPermissions(this);
+        VibratorService.requestVibrator(this);
+        BitmapStore.decodeBitmaps(Constants.USED_BITMAPs_IDS, getResources());
+        SoundStore.createMediaPlayers(Constants.USED_SOUNDS_IDS, this);
         FirebaseInstallationService.init();
         GlobalHighscoresHandler.init();
+
+        SharedPreferences settingsPreferences = getSharedPreferences("settings", Context.MODE_PRIVATE);
+        SoundStore.setMasterVolume(settingsPreferences.getFloat("volume", 1f));
+        VibratorService.setVibrationsActive(settingsPreferences.getBoolean("vibrations", true));
+
+        SoundStore.loopSound(R.raw.menu, Constants.VOLUME_MENU_MUSIC);
     }
 
     public void launchGame(View v) {
         startActivity(new Intent(MenuActivity.this, GameActivity.class));
-    }
-
-    public void checkFirebaseDatabase(View v) {
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference myRef = database.getReference("message").child("test");
-        myRef.setValue("Hello, World!");
+        VibratorService.heavyClick();
+        SoundStore.stopLoopedSound(R.raw.menu);
     }
 
     public void launchRules(View v) {

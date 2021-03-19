@@ -23,6 +23,8 @@
     <string name="scores_title">Scores</string>
 
     <string name="settings_title">Règlages</string>
+    <string name="settings_label_volume">Volume</string>
+    <string name="settings_label_vibrations">Vibrations</string>
 
     <string name="restart_btn">Recommencer</string>
 
