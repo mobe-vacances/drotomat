@@ -22,6 +22,8 @@ import m2dl.mobe.vacances.challenge.utils.XMLParser;
 
 public class GameActivity extends MobeGameActivity {
 
+    private Player player;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,7 +32,7 @@ public class GameActivity extends MobeGameActivity {
 
         GameEngine.reset();
 
-        Player player = new Player(0,0);
+        player = new Player();
 
         readLevel(player);
 
@@ -45,6 +47,8 @@ public class GameActivity extends MobeGameActivity {
                 new AccelerometerEventListener(player),
                 new LightEventListener(player)
         );
+
+        GameEngine.pause();
 
     }
 
@@ -64,5 +68,9 @@ public class GameActivity extends MobeGameActivity {
         intent.putExtra("score", new Random().nextInt(10000));
         startActivity(intent);
         finish();
+    }
+
+    public Player getPlayer() {
+        return player;
     }
 }

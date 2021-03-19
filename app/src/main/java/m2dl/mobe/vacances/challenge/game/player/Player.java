@@ -32,21 +32,16 @@ public class Player implements Drawable, Updatable {
 
     private boolean jumping = true;
 
+    private boolean canMove;
+
     private final Paint paint = new Paint();
 
 
     private Platform currentPlatform = null;
 
-    public Player(float x, float y) {
-        this.x = x;
-        this.y = y;
+    public Player() {
 
-        rect = new Rect(
-                (int) x,
-                (int) y,
-                (int) x + Constants.PLAYER_WIDTH,
-                (int) y + Constants.PLAYER_HEIGHT
-        );
+        this.canMove = false;
 
         paint.setColor(Color.RED);
 
@@ -103,6 +98,8 @@ public class Player implements Drawable, Updatable {
 
     @Override
     public void update(int delta) {
+        if(!canMove)
+            return;
         yAcceleration = Math.min(0, yAcceleration + Constants.PLAYER_Y_INERTIA * delta);
 
         xSpeed = Math.max(-1*Constants.PLAYER_MAX_X_SPEED, Math.min(xSpeed + xAcceleration*delta, Constants.PLAYER_MAX_Y_SPEED));
@@ -154,4 +151,24 @@ public class Player implements Drawable, Updatable {
     public void setCurrentPlatform(Platform currentPlatform) {
         this.currentPlatform = currentPlatform;
     }
+
+    public void setXY(float x, float y){
+        this.x = x;
+        this.y = y;
+        this.rect = new Rect(
+                (int) x,
+                (int) y,
+                (int) x + Constants.PLAYER_WIDTH,
+                (int) y + Constants.PLAYER_HEIGHT
+        );
+    }
+
+    public void setCanMove(boolean canMove) {
+        this.canMove = canMove;
+    }
+
+    public boolean isCanMove(){
+        return this.canMove;
+    }
+
 }

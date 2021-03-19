@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import m2dl.mobe.vacances.challenge.game.mobengine.core.Updatable;
-import m2dl.mobe.vacances.challenge.level.PlateformeFlick;
+import m2dl.mobe.vacances.challenge.game.platform.PlateformeFlick;
 
 public class Flicker implements Updatable {
 
