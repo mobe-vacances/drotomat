@@ -73,6 +73,7 @@ public class Levels extends SoundActivity {
         levels.add(R.xml.level2);
         levels.add(R.xml.level3);
         levels.add(R.xml.level4);
+        levels.add(R.xml.level5);
         ListView listView = findViewById(R.id.levels_list);
         LevelAdapter arrayAdapter = new LevelAdapter(this);
         listView.setAdapter(arrayAdapter);
