@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import m2dl.mobe.vacances.challenge.R;
+import m2dl.mobe.vacances.challenge.game.mobengine.core.GameEngine;
 import m2dl.mobe.vacances.challenge.game.platform.Platform;
 import m2dl.mobe.vacances.challenge.game.platform.SolidPlatform;
 import m2dl.mobe.vacances.challenge.game.player.Player;
@@ -70,7 +71,7 @@ public class XMLParser {
 
     public List<Object> readLevel(Activity activity){
         Resources res = activity.getResources();
-        XmlResourceParser xrp = res.getXml(R.xml.level);
+        XmlResourceParser xrp = res.getXml(GameEngine.level);
         StringBuffer stringBuffer = new StringBuffer();
         List<Object> objects = new ArrayList<>();
 

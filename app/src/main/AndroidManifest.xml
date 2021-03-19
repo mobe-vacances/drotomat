@@ -11,13 +11,28 @@
         android:roundIcon="@drawable/icongame"
         android:supportsRtl="true"
         android:theme="@style/Theme.Challenge">
-        <activity android:name=".game_over.GameOverActivity" android:screenOrientation="portrait"/>
-        <activity android:name=".game.GameActivity" android:screenOrientation="portrait"/>
-        <activity android:name=".scores.ScoresActivity" android:screenOrientation="portrait"/>
-        <activity android:name=".settings.SettingsActivity" android:screenOrientation="portrait"/>
-        <activity android:name=".credits.CreditsActivity" android:screenOrientation="portrait"/>
-        <activity android:name=".rules.RulesActivity" android:screenOrientation="portrait"/>
-        <activity android:name=".menu.MenuActivity" android:screenOrientation="portrait">
+        <activity android:name=".Levels"></activity>
+        <activity
+            android:name=".game_over.GameOverActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".game.GameActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".scores.ScoresActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".settings.SettingsActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".credits.CreditsActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".rules.RulesActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".menu.MenuActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

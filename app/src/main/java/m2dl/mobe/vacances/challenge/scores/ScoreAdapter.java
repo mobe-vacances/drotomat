@@ -35,7 +35,7 @@ public class ScoreAdapter extends ArrayAdapter<Score> {
             listItem = LayoutInflater.from(context).inflate(R.layout.score_item, parent, false);
         }
 
-        ((TextView) listItem.findViewById(R.id.score_item_index)).setText("#" + (position + 1));
+        ((TextView) listItem.findViewById(R.id.level_item_index)).setText("#" + (position + 1));
         ((TextView) listItem.findViewById(R.id.score_item_name)).setText(scores.get(position).getName());
         ((TextView) listItem.findViewById(R.id.score_item_value)).setText("" + scores.get(position).getValue());
 

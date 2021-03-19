@@ -14,6 +14,10 @@ public class Constants {
             R.drawable.player_2_revert,
             R.drawable.player_3_revert,
             R.drawable.exit,
+            R.drawable.level1,
+            R.drawable.level2,
+            R.drawable.level3,
+            R.drawable.level4,
     };
 
     public static final int[] USED_SOUNDS_IDS = {

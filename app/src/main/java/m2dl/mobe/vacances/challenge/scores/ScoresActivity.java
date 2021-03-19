@@ -1,6 +1,5 @@
 package m2dl.mobe.vacances.challenge.scores;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ListView;
@@ -16,7 +15,7 @@ public class ScoresActivity extends SoundActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_scores);
 
-        ((ListView) findViewById(R.id.score_list)).setAdapter(
+        ((ListView) findViewById(R.id.levels_list)).setAdapter(
                 new ScoreAdapter(this, GlobalHighscoresHandler.getScores())
         );
     }
