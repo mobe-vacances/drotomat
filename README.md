@@ -26,11 +26,11 @@ Fait attention aux plateformes avec des pointillés, elles ne sont pas actives. 
 
 - Images : FRANZESE Alessandra
 - Sons :
-    Connum - https://freesound.org/s/12693/\
-    SergeyIonov - https://freesound.org/s/467373/\
-    razrox - https://freesound.org/s/197179/\
-    Joao_Janz - https://freesound.org/s/482653/\
-    Vilkas_Sound - https://freesound.org/s/460475/\
-    old_waveplay - https://freesound.org/s/399934/\
+    Connum - https://freesound.org/s/12693/ \
+    SergeyIonov - https://freesound.org/s/467373/ \
+    razrox - https://freesound.org/s/197179/ \
+    Joao_Janz - https://freesound.org/s/482653/ \
+    Vilkas_Sound - https://freesound.org/s/460475/ \
+    old_waveplay - https://freesound.org/s/399934/ \
     Sharka - Final Fantasy Victory Theme (FAIL RECORDER)\
     http://www.mariopiano.com/
