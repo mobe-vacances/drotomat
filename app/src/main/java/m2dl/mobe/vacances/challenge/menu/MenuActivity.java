@@ -44,8 +44,6 @@ public class MenuActivity extends SoundActivity {
         BitmapStore.decodeBitmaps(Constants.USED_BITMAPs_IDS, getResources());
         SoundStore.createMediaPlayers(Constants.USED_SOUNDS_IDS, this);
         SoundStore.createMediaPlayers(new int[]{R.raw.click},this);
-        FirebaseInstallationService.init();
-        GlobalHighscoresHandler.init();
 
         SharedPreferences settingsPreferences = getSharedPreferences("settings", Context.MODE_PRIVATE);
         SoundStore.setMasterVolume(settingsPreferences.getFloat("volume", 1f));

@@ -36,8 +36,6 @@ public class Player implements Drawable, Updatable {
 
     private Rect rect;
 
-    private boolean jumping = true;
-
     private boolean canMove;
 
     private final Paint paint = new Paint();
@@ -136,8 +134,6 @@ public class Player implements Drawable, Updatable {
     public void jump() {
         if (ySpeed == 0) {
             SoundStore.playSound(R.raw.jump,80);
-            currentPlatform = null;
-            jumping = true;
             yAcceleration = Constants.PLAYER_JUMP_ACCELERATION;
         }
     }
