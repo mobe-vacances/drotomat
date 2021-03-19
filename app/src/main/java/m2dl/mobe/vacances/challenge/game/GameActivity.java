@@ -14,8 +14,9 @@ import m2dl.mobe.vacances.challenge.game.player.LightEventListener;
 import m2dl.mobe.vacances.challenge.game.mobengine.sensors.SensorManagerService;
 import m2dl.mobe.vacances.challenge.game.player.AccelerometerEventListener;
 import m2dl.mobe.vacances.challenge.game.player.Player;
+import m2dl.mobe.vacances.challenge.interaction.Press;
 import m2dl.mobe.vacances.challenge.onTouch.OnTouchListener;
-import m2dl.mobe.vacances.challenge.exit.Exit;
+import m2dl.mobe.vacances.challenge.interaction.Exit;
 import m2dl.mobe.vacances.challenge.utils.XMLParser;
 
 public class GameActivity extends MobeGameActivity {
@@ -41,7 +42,8 @@ public class GameActivity extends MobeGameActivity {
         GameEngine.addGameElements(
                 player,
                 new Background(),
-                new Exit()
+                new Exit(),
+                new Press()
         );
 
         SensorManagerService.requestSensorManager(this);
@@ -61,7 +63,6 @@ public class GameActivity extends MobeGameActivity {
         for(int i = 0 ; i < list.size() ; i++){
             GameEngine.addGameElements(list.get(i));
         }
-
     }
 
 

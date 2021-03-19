@@ -1,4 +1,4 @@
-package m2dl.mobe.vacances.challenge.exit;
+package m2dl.mobe.vacances.challenge.interaction;
 
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
