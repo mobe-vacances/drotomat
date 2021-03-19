@@ -19,14 +19,8 @@ public class PlateformeFlick extends Platform {
     public PlateformeFlick(int left, int top, int right, int bottom, int type, Player player) {
         super(left, top, right, bottom, player);
         this.borderPaint = new Paint();
-        if(type == 1){
-            state = false;
-            this.type = type;
-        }
-        else{
-            state = true;
-            this.type = type;
-        }
+        state = (type == 1);
+        this.type = type;
         Flicker.addPlateforme(this);
     }
 

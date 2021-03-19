@@ -28,8 +28,8 @@ public class Constants {
     public static final long TIME_BETWEEN_LIGHT_EVENTS = 1000;
     public static final long LIGHT_THRESHOLD_PERCENT = 20;
 
-    public static final int PLAYER_WIDTH = 100;
-    public static final int PLAYER_HEIGHT = 200;
+    public static final int PLAYER_WIDTH = 50;
+    public static final int PLAYER_HEIGHT = 100;
     public static final float PLAYER_MAX_X_SPEED = 1f;
     public static final float PLAYER_MAX_Y_SPEED = 1f;
     public static final float PLAYER_JUMP_ACCELERATION = -0.02f;
@@ -39,4 +39,7 @@ public class Constants {
     public static final float PLAYER_X_ACCELERATION = 0.00005f;
 
     public static final int Z_INDEX_PLAYER = 100;
+
+    public static final int BACKGROUND_Z_INDEX = 0;
+    public static final int LEVEL_Z_INDEX = 152;
 }
