@@ -18,6 +18,7 @@ import m2dl.mobe.vacances.challenge.game.mobengine.core.Updatable;
 import m2dl.mobe.vacances.challenge.game.mobengine.resource_stores.BitmapStore;
 import m2dl.mobe.vacances.challenge.game.mobengine.utils.DisplayScale;
 import m2dl.mobe.vacances.challenge.game.mobengine.utils.RandomService;
+import m2dl.mobe.vacances.challenge.game.mobengine.utils.VibratorService;
 import m2dl.mobe.vacances.challenge.game.platform.Platform;
 
 public class Player implements Drawable, Updatable {
@@ -135,11 +136,13 @@ public class Player implements Drawable, Updatable {
     public void jump() {
         if (ySpeed == 0) {
             yAcceleration = Constants.PLAYER_JUMP_ACCELERATION;
+            VibratorService.heavyClick();
         }
     }
 
     public void changeDirection() {
         direction = -1 * direction;
+        VibratorService.heavyClick();
     }
 
     public float getxSpeed() {
