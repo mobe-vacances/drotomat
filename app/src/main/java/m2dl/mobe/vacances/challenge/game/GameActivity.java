@@ -7,6 +7,7 @@ import android.widget.LinearLayout;
 
 import java.util.Random;
 
+import m2dl.mobe.vacances.challenge.R;
 import m2dl.mobe.vacances.challenge.game.background.Background;
 import m2dl.mobe.vacances.challenge.game.mobengine.activities.MobeGameActivity;
 import m2dl.mobe.vacances.challenge.game.mobengine.sensors.LightEventListener;
