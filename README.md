@@ -41,5 +41,5 @@ Fait attention aux plateformes avec des pointillés, elles ne sont pas actives. 
 
 # Lien Github
 
-- https://github.com/mobe-vacances/challenge/
+- https://github.com/mobe-vacances/drotomat/
 
