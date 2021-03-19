@@ -15,7 +15,7 @@
 
     <string name="game_over_title">NUL</string>
     <string name="game_over_your_score_is">Score : %1$d</string>
-    <string name="game_over_your_highscore_is">Record : %1$d</string>
+    <string name="game_over_your_highscore_is">Record personnel : %1$d</string>
 
     <string name="rules_title">Règles</string>
     <string name="rules_text">expliquer des trucs là</string>
