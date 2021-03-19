@@ -25,7 +25,12 @@ public class Constants {
     };
 
     public static final int[] USED_SOUNDS_IDS = {
-            R.raw.menu
+            R.raw.menu,
+            R.raw.game_midi,
+            R.raw.start,
+            R.raw.jump,
+            R.raw.victory,
+            R.raw.click
     };
 
     public static final int FLICK_PLATFORM_COLOR_1 = Color.rgb(186, 191, 239);

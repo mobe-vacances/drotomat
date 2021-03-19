@@ -44,7 +44,6 @@ public class MenuActivity extends SoundActivity {
         startActivity(new Intent(MenuActivity.this, Levels.class));
         VibratorService.heavyClick();
         SoundStore.playSound(R.raw.click,100);
-        SoundStore.stopLoopedSound(R.raw.menu);
     }
 
     public void launchRules(View v) {

@@ -46,6 +46,7 @@ public class OnTouchListener implements View.OnTouchListener {
             stateTouch = StateTouch.RUNNING;
         } else if (stateTouch.equals(StateTouch.WAITING_END)) {
             SoundStore.stopLoopedSound(R.raw.victory);
+            SoundStore.stopLoopedSound(R.raw.game_midi);
             SoundStore.playSound(R.raw.menu, 100);
             activity.finish();
         }

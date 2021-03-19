@@ -27,8 +27,8 @@ public class GameActivity extends MobeGameActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        SoundStore.createMediaPlayers(new int[]{R.raw.game_midi, R.raw.start,R.raw.jump,R.raw.victory},this);
-        SoundStore.playSound(R.raw.game_midi,100);
+
+        SoundStore.loopSound(R.raw.game_midi,100);
 
 
         getGameView().setOnTouchListener(new OnTouchListener(this));

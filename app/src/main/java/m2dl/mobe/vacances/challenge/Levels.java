@@ -81,6 +81,7 @@ public class Levels extends SoundActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 launchGame(view, levels.get(position));
+                SoundStore.stopLoopedSound(R.raw.menu);
             }
         });
     }
@@ -89,18 +90,15 @@ public class Levels extends SoundActivity {
     public void launchGame(View v, Integer level) {
         GameEngine.level = level;
         startActivity(new Intent(Levels.this, GameActivity.class));
+        SoundStore.stopLoopedSound(R.raw.menu);
         VibratorService.heavyClick();
     }
 
     public void back(View view) {
         finish();
+        SoundStore.playSound(R.raw.click,100);
     }
 
-    public void launchLevels(View v) {
-        startActivity(new Intent(Levels.this, GameActivity.class));
-        VibratorService.heavyClick();
-        SoundStore.stopLoopedSound(R.raw.menu);
-    }
 
 
 }
