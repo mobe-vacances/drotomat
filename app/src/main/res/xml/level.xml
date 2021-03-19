@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <Plateformes>
+
+        <PlateformeDure>
+            <left>300</left>
+            <top>30</top>
+            <right>600</right>
+            <bottom>60</bottom>
+        </PlateformeDure>
+
+        <PlateformeDure>
+            <left>150</left>
+            <top>15</top>
+            <right>200</right>
+            <bottom>20</bottom>
+        </PlateformeDure>
+
+    </Plateformes>
+
+</resources>

@@ -1,18 +1,17 @@
 package m2dl.mobe.vacances.challenge.game;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
 import java.util.Random;
 
-import m2dl.mobe.vacances.challenge.R;
+import m2dl.mobe.vacances.challenge.game.background.Background;
 import m2dl.mobe.vacances.challenge.game.mobengine.activities.MobeGameActivity;
-import m2dl.mobe.vacances.challenge.game.mobengine.activities.SoundActivity;
 import m2dl.mobe.vacances.challenge.game.mobengine.core.GameEngine;
 import m2dl.mobe.vacances.challenge.game.player.Player;
 import m2dl.mobe.vacances.challenge.game_over.GameOverActivity;
+import m2dl.mobe.vacances.challenge.utils.XMLParser;
 
 public class GameActivity extends MobeGameActivity {
 
@@ -20,11 +19,30 @@ public class GameActivity extends MobeGameActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        Background background = new Background();
+
+
+        GameEngine.reset();
         GameEngine.addGameElements(
-                new Player(0,0)
+                background
+        );
+        readLevel();
+        GameEngine.start();
+
+        GameEngine.addGameElements(
+                new Player(0,0),
+                new Background()
         );
 
     }
+
+
+    private void readLevel(){
+        XMLParser xmlParser = new XMLParser();
+        System.out.println(xmlParser.read(this));
+
+    }
+
 
     public void loose(View v) {
         Intent intent = new Intent(GameActivity.this, GameOverActivity.class);
