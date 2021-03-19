@@ -3,33 +3,19 @@
 
     <Plateformes>
 
-        <PlateformeDure>
-            <left>300</left>
-            <top>30</top>
-            <right>600</right>
-            <bottom>60</bottom>
-        </PlateformeDure>
-
-        <PlateformeDure>
-            <left>150</left>
-            <top>15</top>
-            <right>200</right>
-            <bottom>20</bottom>
-        </PlateformeDure>
-
         <PlateformeFlick>
-            <left>150</left>
-            <top>100</top>
-            <right>200</right>
-            <bottom>200</bottom>
+            <left>0</left>
+            <top>800</top>
+            <right>300</right>
+            <bottom>900</bottom>
             <type>1</type>
         </PlateformeFlick>
 
         <PlateformeFlick>
-            <left>300</left>
-            <top>100</top>
-            <right>600</right>
-            <bottom>200</bottom>
+            <left>410</left>
+            <top>800</top>
+            <right>1300</right>
+            <bottom>900</bottom>
             <type>2</type>
         </PlateformeFlick>
 
