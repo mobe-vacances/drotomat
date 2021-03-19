@@ -19,12 +19,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 import m2dl.mobe.vacances.challenge.game.GameActivity;
+import m2dl.mobe.vacances.challenge.game.mobengine.activities.SoundActivity;
 import m2dl.mobe.vacances.challenge.game.mobengine.core.GameEngine;
 import m2dl.mobe.vacances.challenge.game.mobengine.resource_stores.BitmapStore;
 import m2dl.mobe.vacances.challenge.game.mobengine.resource_stores.SoundStore;
 import m2dl.mobe.vacances.challenge.game.mobengine.utils.VibratorService;
 
-public class Levels extends AppCompatActivity {
+public class Levels extends SoundActivity {
 
     private class LevelAdapter extends ArrayAdapter {
 
