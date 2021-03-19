@@ -73,8 +73,8 @@ public class Player implements Drawable, Updatable {
         } else {
             if (xSpeed > 0) {
                 canvas.drawBitmap(
-                        Bitmap.createScaledBitmap(BitmapStore.getBitmap(incressStep()), rect.width(), rect.height(), false),
-                        rect.left, rect.top,
+                        Bitmap.createScaledBitmap(BitmapStore.getBitmap(incressStep()), rect.width()+20, rect.height(), false),
+                        rect.left-10, rect.top,
                         null
                 );
             } else {
