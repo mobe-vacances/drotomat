@@ -44,7 +44,6 @@ public class GameActivity extends MobeGameActivity {
                 new AccelerometerEventListener(),
                 new LightEventListener()
         );
-        setContentView(R.layout.activity_game); // À ENLEVER QUAND IL Y AURA UN VRAI JEU
     }
 
 
