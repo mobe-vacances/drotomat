@@ -19,7 +19,7 @@ public class Player implements Drawable, Updatable {
     private float xSpeed;
     private float ySpeed;
 
-    private float xAcceleration;
+    private float xAcceleration = Constants.PLAYER_X_ACCELERATION;
     private float yAcceleration;
 
     private Rect rect;
@@ -41,7 +41,7 @@ public class Player implements Drawable, Updatable {
 
         paint.setColor(Color.RED);
 
-        new Handler().postDelayed(this::jump, 5000);
+        new Handler().postDelayed(this::changeDirection, 5000);
     }
 
     @Override
@@ -57,8 +57,6 @@ public class Player implements Drawable, Updatable {
     @Override
     public void update(int delta) {
         yAcceleration = Math.min(0, yAcceleration + Constants.PLAYER_Y_INERTIA*delta);
-
-        System.out.println(yAcceleration);
 
         xSpeed = Math.max(-1*Constants.PLAYER_MAX_X_SPEED, Math.min(xSpeed + xAcceleration*delta, Constants.PLAYER_MAX_Y_SPEED));
         if(jumping) {
@@ -81,4 +79,9 @@ public class Player implements Drawable, Updatable {
             yAcceleration = Constants.PLAYER_JUMP_ACCELERATION;
         }
     }
+
+    public void changeDirection() {
+        xAcceleration = -1*xAcceleration;
+    }
+
 }

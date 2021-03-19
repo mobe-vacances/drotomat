@@ -24,6 +24,7 @@ public class Constants {
     public static final float PLAYER_GRAVITY = 0.025f;
     public static final float PLAYER_Y_INERTIA = 0.0003f;
     public static final float PLAYER_X_INERTIA = 0.0003f;
+    public static final float PLAYER_X_ACCELERATION = 0.0006f;
 
     public static final int Z_INDEX_PLAYER = 100;
 }
