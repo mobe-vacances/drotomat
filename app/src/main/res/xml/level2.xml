@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+
+    <Plateformes>
+
+        <PlateformeFlick>
+            <left>0</left>
+            <top>850</top>
+            <right>300</right>
+            <bottom>900</bottom>
+            <type>1</type>
+        </PlateformeFlick>
+
+        <PlateformeDure>
+            <left>300</left>
+            <top>850</top>
+            <right>550</right>
+            <bottom>900</bottom>
+        </PlateformeDure>
+
+        <PlateformeFlick>
+            <left>550</left>
+            <top>850</top>
+            <right>1300</right>
+            <bottom>900</bottom>
+            <type>2</type>
+        </PlateformeFlick>
+
+    </Plateformes>
+
+</resources>
