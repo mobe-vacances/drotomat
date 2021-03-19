@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import m2dl.mobe.vacances.challenge.R;
-import m2dl.mobe.vacances.challenge.game.level.aPlateforme;
+import m2dl.mobe.vacances.challenge.game.platform.Platform;
 
 public class XMLParser {
 
@@ -66,7 +66,7 @@ public class XMLParser {
         Resources res = activity.getResources();
         XmlResourceParser xrp = res.getXml(R.xml.level);
         StringBuffer stringBuffer = new StringBuffer();
-        List<aPlateforme> plateformes = new ArrayList<>();
+        List<Platform> plateformes = new ArrayList<>();
 
         try {
             xrp.next();
