@@ -6,6 +6,7 @@ import android.view.View;
 
 import m2dl.mobe.vacances.challenge.R;
 import m2dl.mobe.vacances.challenge.game.mobengine.activities.SoundActivity;
+import m2dl.mobe.vacances.challenge.game.mobengine.resource_stores.SoundStore;
 
 public class RulesActivity extends SoundActivity {
 
@@ -16,6 +17,7 @@ public class RulesActivity extends SoundActivity {
     }
 
     public void back(View view) {
+        SoundStore.playSound(R.raw.click,100);
         finish();
     }
 }

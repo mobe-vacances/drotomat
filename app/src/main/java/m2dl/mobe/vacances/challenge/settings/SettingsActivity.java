@@ -27,5 +27,6 @@ public class SettingsActivity extends SoundActivity {
 
     public void back(View view) {
         finish();
+        SoundStore.playSound(R.raw.click,100);
     }
 }
