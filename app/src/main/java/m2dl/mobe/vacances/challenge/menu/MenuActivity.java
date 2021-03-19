@@ -1,16 +1,11 @@
 package m2dl.mobe.vacances.challenge.menu;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.TextView;
-
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 
 import m2dl.mobe.vacances.challenge.R;
 import m2dl.mobe.vacances.challenge.credits.CreditsActivity;
@@ -24,7 +19,6 @@ import m2dl.mobe.vacances.challenge.game.mobengine.resource_stores.SoundStore;
 import m2dl.mobe.vacances.challenge.game.mobengine.utils.PermissionUtil;
 import m2dl.mobe.vacances.challenge.game.mobengine.utils.VibratorService;
 import m2dl.mobe.vacances.challenge.rules.RulesActivity;
-import m2dl.mobe.vacances.challenge.scores.ScoresActivity;
 import m2dl.mobe.vacances.challenge.settings.SettingsActivity;
 
 public class MenuActivity extends SoundActivity {
@@ -68,10 +62,6 @@ public class MenuActivity extends SoundActivity {
 
     public void launchRules(View v) {
         startActivity(new Intent(MenuActivity.this, RulesActivity.class));
-    }
-
-    public void launchScores(View v) {
-        startActivity(new Intent(MenuActivity.this, ScoresActivity.class));
     }
 
     public void launchSettings(View v) {

@@ -1,6 +1,5 @@
 package m2dl.mobe.vacances.challenge.game_over;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -13,9 +12,7 @@ import m2dl.mobe.vacances.challenge.game.GameActivity;
 import m2dl.mobe.vacances.challenge.game.mobengine.activities.SoundActivity;
 import m2dl.mobe.vacances.challenge.game.mobengine.resource_stores.SoundStore;
 import m2dl.mobe.vacances.challenge.game.mobengine.utils.VibratorService;
-import m2dl.mobe.vacances.challenge.menu.MenuActivity;
 import m2dl.mobe.vacances.challenge.scores.Score;
-import m2dl.mobe.vacances.challenge.scores.ScoresActivity;
 
 public class GameOverActivity extends SoundActivity {
 
@@ -48,10 +45,6 @@ public class GameOverActivity extends SoundActivity {
         );
 
         SoundStore.loopSound(R.raw.menu, Constants.VOLUME_MENU_MUSIC);
-    }
-
-    public void launchScores(View v) {
-        startActivity(new Intent(GameOverActivity.this, ScoresActivity.class));
     }
 
     public void back(View v) {
