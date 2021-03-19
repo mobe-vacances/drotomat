@@ -28,25 +28,21 @@ public class Player implements Drawable, Updatable {
     private float xAcceleration = Constants.PLAYER_X_ACCELERATION;
     private float yAcceleration;
 
+    private int direction = 1;
+
     private Rect rect;
 
     private boolean jumping = true;
 
+    private boolean canMove;
+
     private final Paint paint = new Paint();
 
+    private final List<Platform> currentPlatforms = new ArrayList<>();
 
-    private Platform currentPlatform = null;
+    public Player() {
 
-    public Player(float x, float y) {
-        this.x = x;
-        this.y = y;
-
-        rect = new Rect(
-                (int) x,
-                (int) y,
-                (int) x + Constants.PLAYER_WIDTH,
-                (int) y + Constants.PLAYER_HEIGHT
-        );
+        this.canMove = false;
 
         paint.setColor(Color.RED);
 
@@ -66,8 +62,8 @@ public class Player implements Drawable, Updatable {
     public void draw(Canvas canvas) {
         if (ySpeed != 0f) {
             canvas.drawBitmap(
-                    Bitmap.createScaledBitmap(BitmapStore.getBitmap(xSpeed < 0 ? R.drawable.player_jump : R.drawable.player_jump_revert), rect.width(), rect.height(), false),
-                    rect.left, rect.top,
+                    Bitmap.createScaledBitmap(BitmapStore.getBitmap(xSpeed < 0 ? R.drawable.player_jump : R.drawable.player_jump_revert), rect.width()+20, rect.height(), false),
+                    rect.left-10, rect.top,
                     null
             );
         } else {
@@ -79,8 +75,8 @@ public class Player implements Drawable, Updatable {
                 );
             } else {
                 canvas.drawBitmap(
-                        Bitmap.createScaledBitmap(BitmapStore.getBitmap(incressStep()), rect.width(), rect.height(), false),
-                        rect.left, rect.top,
+                        Bitmap.createScaledBitmap(BitmapStore.getBitmap(incressStep()), rect.width()+20, rect.height(), false),
+                        rect.left-10, rect.top,
                         null
                 );
             }
@@ -91,52 +87,56 @@ public class Player implements Drawable, Updatable {
         imageStep = ((imageStep + 1) % (PAS * 3)) + 1;
         switch (Math.floorDiv(imageStep, PAS)) {
             case 0:
-                return xSpeed > 0 ? R.drawable.player_2 : R.drawable.player_2_revert;
+                return xAcceleration > 0 ? R.drawable.player_2 : R.drawable.player_2_revert;
             case 1:
-                return xSpeed > 0 ? R.drawable.player_3 : R.drawable.player_3_revert;
+                return xAcceleration > 0 ? R.drawable.player_3 : R.drawable.player_3_revert;
             case 2:
-                return xSpeed > 0 ? R.drawable.player_1 : R.drawable.player_1_revert;
+                return xAcceleration > 0 ? R.drawable.player_1 : R.drawable.player_1_revert;
             default:
-                return xSpeed > 0 ? R.drawable.player_1 : R.drawable.player_1_revert;
+                return xAcceleration > 0 ? R.drawable.player_1 : R.drawable.player_1_revert;
         }
     }
 
     @Override
     public void update(int delta) {
+        if(!canMove)
+            return;
         yAcceleration = Math.min(0, yAcceleration + Constants.PLAYER_Y_INERTIA * delta);
 
-        xSpeed = Math.max(-1*Constants.PLAYER_MAX_X_SPEED, Math.min(xSpeed + xAcceleration*delta, Constants.PLAYER_MAX_Y_SPEED));
+        xSpeed = Math.max(-1*Constants.PLAYER_MAX_X_SPEED, Math.min(xSpeed + direction*xAcceleration*delta, Constants.PLAYER_MAX_Y_SPEED));
+        ySpeed = Math.max(-1*Constants.PLAYER_MAX_Y_SPEED, Math.min(ySpeed + Constants.PLAYER_GRAVITY*delta + yAcceleration*delta, Constants.PLAYER_MAX_Y_SPEED));
 
-        if(currentPlatform == null || !Rect.intersects(rect, currentPlatform.getRectangle())) {
-            jumping = true;
-        }
-
-        if(jumping) {
-            ySpeed = Math.max(-1*Constants.PLAYER_MAX_Y_SPEED, Math.min(ySpeed + Constants.PLAYER_GRAVITY*delta + yAcceleration*delta, Constants.PLAYER_MAX_Y_SPEED));
-            if(ySpeed > 0 && currentPlatform != null && currentPlatform.getRectangle().top <= rect.bottom && rect.right > currentPlatform.getRectangle().left && rect.left < currentPlatform.getRectangle().right) {
+        for(Platform platform : currentPlatforms) {
+            if(ySpeed > 0 && platform.getRectangle().top < rect.bottom && rect.right > platform.getRectangle().left && rect.left < platform.getRectangle().right) {
                 ySpeed = 0;
-                jumping = false;
-                y = currentPlatform.getRectangle().top - Constants.PLAYER_HEIGHT;
-                //jump();
+                y = platform.getRectangle().top - Constants.PLAYER_HEIGHT + 1;
+                rect.offsetTo((int) x, (int) y);
             }
         }
 
-        x += xSpeed * delta;
+        x = Math.max(0, Math.min(x + xSpeed * delta, DisplayScale.getRect().right - Constants.PLAYER_WIDTH));
+
+        if(x == 0f || x == DisplayScale.getRect().right - Constants.PLAYER_WIDTH) {
+            xSpeed = 0;
+        }
+
         y += ySpeed * delta;
 
         rect.offsetTo((int) x, (int) y);
+
+        if(!Rect.intersects(rect, DisplayScale.getRect())) {
+            System.out.println("Perdu");
+        }
     }
 
     public void jump() {
         if (ySpeed == 0) {
-            currentPlatform = null;
-            jumping = true;
             yAcceleration = Constants.PLAYER_JUMP_ACCELERATION;
         }
     }
 
     public void changeDirection() {
-        xAcceleration = -1 * xAcceleration;
+        direction = -1 * direction;
     }
 
     public float getxSpeed() {
@@ -151,7 +151,41 @@ public class Player implements Drawable, Updatable {
         return rect;
     }
 
-    public void setCurrentPlatform(Platform currentPlatform) {
-        this.currentPlatform = currentPlatform;
+    public void addCurrentPlatform(Platform currentPlatform) {
+        this.currentPlatforms.add(currentPlatform);
     }
+
+    public void removeCurrentPlatform(Platform platform) {
+        this.currentPlatforms.remove(platform);
+    }
+
+    public void setX(float x) {
+        this.x = x;
+        this.rect.offsetTo((int)x,(int)y);
+    }
+
+    public void setY(float y) {
+        this.y = y;
+        this.rect.offsetTo((int)x,(int)y);
+    }
+
+    public void setXY(float x, float y){
+        this.x = x;
+        this.y = y;
+        this.rect = new Rect(
+                (int) x,
+                (int) y,
+                (int) x + Constants.PLAYER_WIDTH,
+                (int) y + Constants.PLAYER_HEIGHT
+        );
+    }
+
+    public void setCanMove(boolean canMove) {
+        this.canMove = canMove;
+    }
+
+    public boolean isCanMove(){
+        return this.canMove;
+    }
+
 }

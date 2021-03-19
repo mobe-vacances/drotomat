@@ -3,35 +3,40 @@
 
     <Plateformes>
 
-        <PlateformeDure>
-            <left>300</left>
-            <top>30</top>
-            <right>600</right>
-            <bottom>60</bottom>
-        </PlateformeDure>
-
-        <PlateformeDure>
-            <left>150</left>
-            <top>15</top>
-            <right>200</right>
-            <bottom>20</bottom>
-        </PlateformeDure>
-
         <PlateformeFlick>
-            <left>150</left>
-            <top>100</top>
-            <right>200</right>
-            <bottom>200</bottom>
+            <left>0</left>
+            <top>800</top>
+            <right>300</right>
+            <bottom>900</bottom>
             <type>1</type>
         </PlateformeFlick>
 
         <PlateformeFlick>
-            <left>300</left>
-            <top>100</top>
-            <right>600</right>
-            <bottom>200</bottom>
+            <left>410</left>
+            <top>800</top>
+            <right>1300</right>
+            <bottom>900</bottom>
             <type>2</type>
         </PlateformeFlick>
+
+        <Start>
+            <x>150</x>
+            <y>250</y>
+        </Start>
+
+        <PlateformeDure>
+            <left>50</left>
+            <top>1000</top>
+            <right>600</right>
+            <bottom>1010</bottom>
+        </PlateformeDure>
+
+        <Goal>
+            <left>600</left>
+            <top>1000</top>
+            <right>10000</right>
+            <bottom>12000</bottom>
+        </Goal>
 
     </Plateformes>
 

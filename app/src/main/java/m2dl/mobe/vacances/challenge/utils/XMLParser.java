@@ -15,9 +15,10 @@ import java.util.List;
 import m2dl.mobe.vacances.challenge.R;
 import m2dl.mobe.vacances.challenge.game.mobengine.core.GameEngine;
 import m2dl.mobe.vacances.challenge.game.platform.Platform;
+import m2dl.mobe.vacances.challenge.game.goal.Goal;
 import m2dl.mobe.vacances.challenge.game.platform.SolidPlatform;
 import m2dl.mobe.vacances.challenge.game.player.Player;
-import m2dl.mobe.vacances.challenge.level.PlateformeFlick;
+import m2dl.mobe.vacances.challenge.game.platform.PlateformeFlick;
 
 
 public class XMLParser {
@@ -87,9 +88,21 @@ public class XMLParser {
 
                 }
 
-                if(eventType == XmlPullParser.START_TAG && xrp.getName().equals("PlateformeFlick"))
+                else if(eventType == XmlPullParser.START_TAG && xrp.getName().equals("PlateformeFlick"))
                 {
                     objects.add(buildPlateformeFlick(xrp));
+
+                }
+
+                else if(eventType == XmlPullParser.START_TAG && xrp.getName().equals("Start"))
+                {
+                    buildStart(xrp);
+
+                }
+
+                else if(eventType == XmlPullParser.START_TAG && xrp.getName().equals("Goal"))
+                {
+                    objects.add(buildGoal(xrp));
 
                 }
 
@@ -111,7 +124,6 @@ public class XMLParser {
         try {
             eventType = xrp.getEventType();
             String name = xrp.getName();
-            System.out.println(name + " " + eventType + " " + XmlPullParser.END_TAG);
             while (eventType != XmlPullParser.END_TAG || !name.equals("PlateformeDure")){
                 if(eventType == XmlPullParser.TEXT){
                     rect.add(Integer.parseInt(xrp.getText()));
@@ -133,7 +145,6 @@ public class XMLParser {
         try {
             eventType = xrp.getEventType();
             String name = xrp.getName();
-            System.out.println(name + " " + eventType + " " + XmlPullParser.END_TAG);
             while (eventType != XmlPullParser.END_TAG || !name.equals("PlateformeFlick")){
                 if(eventType == XmlPullParser.TEXT){
                     rect.add(Integer.parseInt(xrp.getText()));
@@ -147,6 +158,49 @@ public class XMLParser {
             e.printStackTrace();
         }
         return new PlateformeFlick(rect.get(0),rect.get(1),rect.get(2),rect.get(3),rect.get(4), player);
+    }
+
+    private Goal buildGoal(XmlResourceParser xrp) {
+        List<Integer> rect = new ArrayList<>();
+        int eventType = 0;
+        try {
+            eventType = xrp.getEventType();
+            String name = xrp.getName();
+            while (eventType != XmlPullParser.END_TAG || !name.equals("Goal")){
+                if(eventType == XmlPullParser.TEXT){
+                    rect.add(Integer.parseInt(xrp.getText()));
+                }
+                eventType = xrp.next();
+                name = xrp.getName();
+            }
+        } catch (XmlPullParserException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return new Goal(player,rect.get(0),rect.get(1),rect.get(2),rect.get(3));
+    }
+
+    private void buildStart(XmlResourceParser xrp) {
+        List<Integer> coor = new ArrayList<>();
+        int eventType = 0;
+        try {
+            eventType = xrp.getEventType();
+            String name = xrp.getName();
+            while (eventType != XmlPullParser.END_TAG || !name.equals("Start")){
+                if(eventType == XmlPullParser.TEXT){
+                    coor.add(Integer.parseInt(xrp.getText()));
+                }
+                eventType = xrp.next();
+                name = xrp.getName();
+            }
+        } catch (XmlPullParserException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        player.setXY(coor.get(0),coor.get(1));
     }
 
 
