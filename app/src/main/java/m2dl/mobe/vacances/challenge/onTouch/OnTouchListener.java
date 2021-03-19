@@ -4,11 +4,12 @@ import android.view.MotionEvent;
 import android.view.View;
 
 import m2dl.mobe.vacances.challenge.R;
-import m2dl.mobe.vacances.challenge.exit.Exit;
 import m2dl.mobe.vacances.challenge.game.GameActivity;
 import m2dl.mobe.vacances.challenge.game.mobengine.resource_stores.SoundStore;
 import m2dl.mobe.vacances.challenge.game.mobengine.utils.DisplayScale;
+import m2dl.mobe.vacances.challenge.interaction.Exit;
 import m2dl.mobe.vacances.challenge.game.platform.Flicker;
+import m2dl.mobe.vacances.challenge.interaction.Press;
 
 
 public class OnTouchListener implements View.OnTouchListener {
@@ -25,6 +26,7 @@ public class OnTouchListener implements View.OnTouchListener {
 
     @Override
     public boolean onTouch(View v, MotionEvent event) {
+        Press.visible = false;
         if (stateTouch.equals(StateTouch.RUNNING)) {
             if (event.getAction() == MotionEvent.ACTION_DOWN) {
                 if (Exit.intersectsWithPause((int) (event.getX() / DisplayScale.getScale()), (int) (event.getY() / DisplayScale.getScale()))) {

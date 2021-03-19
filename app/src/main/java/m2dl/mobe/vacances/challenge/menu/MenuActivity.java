@@ -27,18 +27,6 @@ public class MenuActivity extends SoundActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
 
-        EditText editText = (EditText) findViewById(R.id.editTextTextPersonName);
-        SharedPreferences preferences = getSharedPreferences("scores",Context.MODE_PRIVATE);
-
-        editText.setText(
-                preferences.getString(
-                        "username",
-                        getResources().getString(R.string.default_player_name)
-                )
-        );
-
-        editText.addTextChangedListener(new UsernameChangedListener(preferences));
-
         PermissionUtil.checkAndRequestAllPermissions(this);
         VibratorService.requestVibrator(this);
         BitmapStore.decodeBitmaps(Constants.USED_BITMAPs_IDS, getResources());

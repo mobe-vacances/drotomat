@@ -20,6 +20,8 @@ public class Constants {
             R.drawable.level2,
             R.drawable.level3,
             R.drawable.level4,
+            R.drawable.press,
+            R.drawable.goal
     };
 
     public static final int[] USED_SOUNDS_IDS = {

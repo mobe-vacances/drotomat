@@ -1,5 +1,6 @@
 package m2dl.mobe.vacances.challenge.game.goal;
 
+import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
@@ -11,6 +12,7 @@ import m2dl.mobe.vacances.challenge.R;
 import m2dl.mobe.vacances.challenge.game.mobengine.core.Drawable;
 import m2dl.mobe.vacances.challenge.game.mobengine.core.GameEngine;
 import m2dl.mobe.vacances.challenge.game.mobengine.core.Updatable;
+import m2dl.mobe.vacances.challenge.game.mobengine.resource_stores.BitmapStore;
 import m2dl.mobe.vacances.challenge.game.mobengine.utils.DisplayScale;
 import m2dl.mobe.vacances.challenge.game.mobengine.utils.RandomService;
 import m2dl.mobe.vacances.challenge.game.mobengine.resource_stores.SoundStore;
@@ -22,12 +24,10 @@ public class Goal implements Drawable, Updatable {
 
     private Player player;
     private Rect hitbox;
-    private Paint fillPaint;
 
     public Goal(Player player,int left,int top, int right, int bot){
         this.hitbox = new Rect(left,top,right,bot);
         this.player = player;
-        this.fillPaint = new Paint();
     }
 
 
@@ -36,15 +36,15 @@ public class Goal implements Drawable, Updatable {
         return 5;
     }
 
-    public void initPaints() {
-        fillPaint.setStyle(Paint.Style.FILL);
-        fillPaint.setColor(Color.YELLOW);
-    }
 
     @Override
     public void draw(Canvas canvas) {
-        initPaints();
-        canvas.drawRect(hitbox, fillPaint);
+        canvas.drawBitmap(
+                Bitmap.createScaledBitmap(BitmapStore.getBitmap(R.drawable.goal), hitbox.width(), hitbox.height(), false),
+                hitbox.left,
+                hitbox.top,
+                null
+        );
     }
 
     @Override
