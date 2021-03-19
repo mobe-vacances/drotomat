@@ -6,7 +6,7 @@ import android.graphics.DashPathEffect;
 import android.graphics.Paint;
 import android.graphics.Rect;
 
-import m2dl.mobe.vacances.challenge.game.platform.Platform;
+import m2dl.mobe.vacances.challenge.game.Constants;
 import m2dl.mobe.vacances.challenge.game.player.Player;
 
 public class PlateformeFlick extends Platform {
@@ -24,37 +24,19 @@ public class PlateformeFlick extends Platform {
     }
 
     public void initPaints() {
-
-        // fill
-        fillPaint.setStyle(Paint.Style.FILL);
-        if(type == 1 && state) {
-            fillPaint.setColor(Color.BLUE);
-        }
-        else if(type == 1 && !state){
-            fillPaint.setColor(Color.TRANSPARENT);
-        }
-        else if (type == 2 && state) {
-            fillPaint.setColor(Color.RED);
-        }
-        else if(type == 2 && !state){
-            fillPaint.setColor(Color.TRANSPARENT);
-        }
-
         borderPaint.reset();
-
         borderPaint.setStyle(Paint.Style.STROKE);
         borderPaint.setStrokeWidth(5);
-        if(!state){
-            borderPaint.setARGB(255, 0, 0,0);
-            borderPaint.setPathEffect(new DashPathEffect(new float[] {10f,20f}, 0f));
-        }
-        if(type == 1) {
-            borderPaint.setColor(Color.BLUE);
-        }
-        else{
-            borderPaint.setColor(Color.RED);
-        }
+        fillPaint.setStyle(Paint.Style.FILL);
 
+        if(!state) {
+            borderPaint.setPathEffect(new DashPathEffect(new float[] {10f,20f}, 0f));
+            fillPaint.setColor(Color.TRANSPARENT);
+            borderPaint.setColor(type == 1 ? Constants.FLICK_PLATFORM_COLOR_1 : Constants.FLICK_PLATFORM_COLOR_2);
+        } else {
+            borderPaint.setColor(Color.TRANSPARENT);
+            fillPaint.setColor(type == 1 ? Constants.FLICK_PLATFORM_COLOR_1 : Constants.FLICK_PLATFORM_COLOR_2);
+        }
     }
 
     public void switchPlateform(){
@@ -76,4 +58,5 @@ public class PlateformeFlick extends Platform {
             canvas.drawRect(rectangle, borderPaint);
         }
     }
+
 }

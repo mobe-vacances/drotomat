@@ -26,6 +26,8 @@ public class Constants {
             R.raw.menu
     };
 
+    public static final int FLICK_PLATFORM_COLOR_1 = Color.rgb(186, 191, 239);
+    public static final int FLICK_PLATFORM_COLOR_2 = Color.rgb(175, 239, 237);
 
     public static final float VOLUME_MENU_MUSIC = 0.9f;
 
