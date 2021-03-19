@@ -70,6 +70,7 @@ public class Levels extends AppCompatActivity {
         levels = new ArrayList<>();
         levels.add(R.xml.level);
         levels.add(R.xml.level2);
+        levels.add(R.xml.level3);
         ListView listView = findViewById(R.id.levels_list);
         LevelAdapter arrayAdapter = new LevelAdapter(this);
         listView.setAdapter(arrayAdapter);
