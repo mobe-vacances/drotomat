@@ -5,7 +5,6 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Rect;
-import android.os.Handler;
 
 import m2dl.mobe.vacances.challenge.R;
 import m2dl.mobe.vacances.challenge.game.Constants;
@@ -46,7 +45,6 @@ public class Player implements Drawable, Updatable {
 
         imageStep = 1;
 
-        new Handler().postDelayed(this::changeDirection, 5000);
     }
 
     int imageStep;
@@ -59,20 +57,20 @@ public class Player implements Drawable, Updatable {
 
     @Override
     public void draw(Canvas canvas) {
-        if(ySpeed != 0.0){
+        if (ySpeed != 0.0) {
             canvas.drawBitmap(
                     Bitmap.createScaledBitmap(BitmapStore.getBitmap(xSpeed > 0 ? R.drawable.player_jump : R.drawable.player_jump_revert), rect.width(), rect.height(), false),
                     rect.left, rect.top,
                     null
             );
-        }else{
-            if(xSpeed > 0) {
+        } else {
+            if (xSpeed > 0) {
                 canvas.drawBitmap(
                         Bitmap.createScaledBitmap(BitmapStore.getBitmap(incressStep()), rect.width(), rect.height(), false),
                         rect.left, rect.top,
                         null
                 );
-            }else{
+            } else {
                 canvas.drawBitmap(
                         Bitmap.createScaledBitmap(BitmapStore.getBitmap(incressStep()), rect.width(), rect.height(), false),
                         rect.left, rect.top,
@@ -84,12 +82,12 @@ public class Player implements Drawable, Updatable {
 
     private int incressStep() {
         imageStep = ((imageStep + 1) % (PAS * 3)) + 1;
-        switch (Math.floorDiv(imageStep, PAS)){
-            case 0 :
+        switch (Math.floorDiv(imageStep, PAS)) {
+            case 0:
                 return xSpeed > 0 ? R.drawable.player_2 : R.drawable.player_2_revert;
-            case 1 :
+            case 1:
                 return xSpeed > 0 ? R.drawable.player_3 : R.drawable.player_3_revert;
-            case 2 :
+            case 2:
                 return xSpeed > 0 ? R.drawable.player_1 : R.drawable.player_1_revert;
             default:
                 return xSpeed > 0 ? R.drawable.player_1 : R.drawable.player_1_revert;
@@ -98,12 +96,12 @@ public class Player implements Drawable, Updatable {
 
     @Override
     public void update(int delta) {
-        yAcceleration = Math.min(0, yAcceleration + Constants.PLAYER_Y_INERTIA*delta);
+        yAcceleration = Math.min(0, yAcceleration + Constants.PLAYER_Y_INERTIA * delta);
 
-        xSpeed = Math.max(-1*Constants.PLAYER_MAX_X_SPEED, Math.min(xSpeed + xAcceleration*delta, Constants.PLAYER_MAX_Y_SPEED));
-        if(jumping) {
-            ySpeed = Math.max(-1*Constants.PLAYER_MAX_Y_SPEED, Math.min(ySpeed + Constants.PLAYER_GRAVITY*delta + yAcceleration*delta, Constants.PLAYER_MAX_Y_SPEED));
-            if(ySpeed > 0 && DisplayScale.getRect().bottom <= rect.bottom) {
+        xSpeed = Math.max(-1 * Constants.PLAYER_MAX_X_SPEED, Math.min(xSpeed + xAcceleration * delta, Constants.PLAYER_MAX_Y_SPEED));
+        if (jumping) {
+            ySpeed = Math.max(-1 * Constants.PLAYER_MAX_Y_SPEED, Math.min(ySpeed + Constants.PLAYER_GRAVITY * delta + yAcceleration * delta, Constants.PLAYER_MAX_Y_SPEED));
+            if (ySpeed > 0 && DisplayScale.getRect().bottom <= rect.bottom) {
                 ySpeed = 0;
                 jumping = false;
             }
@@ -112,18 +110,18 @@ public class Player implements Drawable, Updatable {
         x += xSpeed * delta;
         y += ySpeed * delta;
 
-        rect.offsetTo((int)x,(int)y);
+        rect.offsetTo((int) x, (int) y);
     }
 
     public void jump() {
-        if(ySpeed == 0) {
+        if (ySpeed == 0) {
             jumping = true;
             yAcceleration = Constants.PLAYER_JUMP_ACCELERATION;
         }
     }
 
     public void changeDirection() {
-        xAcceleration = -1*xAcceleration;
+        xAcceleration = -1 * xAcceleration;
     }
 
 }

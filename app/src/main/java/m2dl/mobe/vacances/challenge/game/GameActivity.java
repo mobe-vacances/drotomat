@@ -3,17 +3,15 @@ package m2dl.mobe.vacances.challenge.game;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.LinearLayout;
 
 import java.util.Random;
 
-import m2dl.mobe.vacances.challenge.R;
 import m2dl.mobe.vacances.challenge.game.background.Background;
 import m2dl.mobe.vacances.challenge.game.mobengine.activities.MobeGameActivity;
+import m2dl.mobe.vacances.challenge.game.mobengine.core.GameEngine;
 import m2dl.mobe.vacances.challenge.game.mobengine.sensors.LightEventListener;
 import m2dl.mobe.vacances.challenge.game.mobengine.sensors.SensorManagerService;
 import m2dl.mobe.vacances.challenge.game.player.AccelerometerEventListener;
-import m2dl.mobe.vacances.challenge.game.mobengine.core.GameEngine;
 import m2dl.mobe.vacances.challenge.game.player.Player;
 import m2dl.mobe.vacances.challenge.game_over.GameOverActivity;
 import m2dl.mobe.vacances.challenge.utils.XMLParser;
@@ -34,20 +32,21 @@ public class GameActivity extends MobeGameActivity {
         readLevel();
         GameEngine.start();
 
-        GameEngine.addGameElements(
-                new Player(0,0),
-                new Background()
-        );
+        Player p = new Player(0, 0);
+        Background b = new Background();
+
+        GameEngine.addGameElements(p, b);
 
         SensorManagerService.requestSensorManager(this);
         SensorManagerService.addSensorListeners(
-                new AccelerometerEventListener(),
-                new LightEventListener()
+                new AccelerometerEventListener(p),
+                new LightEventListener(p)
         );
+
     }
 
 
-    private void readLevel(){
+    private void readLevel() {
         XMLParser xmlParser = new XMLParser();
         System.out.println(xmlParser.read(this));
 

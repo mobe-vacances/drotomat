@@ -22,6 +22,10 @@ public class Constants {
 
     public static final float VOLUME_MENU_MUSIC = 0.9f;
 
+    public static final int ACCELERATION_THRESHOLD = 15;
+    public static final long TIME_BETWEEN_SHAKE_RESETS = 500;
+    public static final long TIME_BETWEEN_LIGHT_EVENTS = 1000;
+    public static final long LIGHT_THRESHOLD_PERCENT = 20;
 
     public static final int PLAYER_WIDTH = 100;
     public static final int PLAYER_HEIGHT = 200;
@@ -34,8 +38,4 @@ public class Constants {
     public static final float PLAYER_X_ACCELERATION = 0.0006f;
 
     public static final int Z_INDEX_PLAYER = 100;
-
-    public static final int ACCELERATION_THRESHOLD = 15;
-    public static final long TIME_BETWEEN_RESETS = 500;
-    public static final long LIGHT_THRESHOLD_PERCENT = 20;
 }
