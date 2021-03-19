@@ -18,7 +18,6 @@ import m2dl.mobe.vacances.challenge.game.player.Player;
 import m2dl.mobe.vacances.challenge.game_over.GameOverActivity;
 import m2dl.mobe.vacances.challenge.onTouch.OnTouchListener;
 import m2dl.mobe.vacances.challenge.pause.Exit;
-import m2dl.mobe.vacances.challenge.onTouch.onTouchListener;
 import m2dl.mobe.vacances.challenge.utils.XMLParser;
 
 public class GameActivity extends MobeGameActivity {
@@ -33,13 +32,11 @@ public class GameActivity extends MobeGameActivity {
 
         Player player = new Player(0,0);
 
-        readLevel();
+        readLevel(player);
 
         GameEngine.addGameElements(
                 player,
                 new Background(),
-                new SolidPlatform(0,800,200,900, player),
-                new SolidPlatform(500,700,1000,800, player),
                 new Exit()
         );
 
@@ -52,8 +49,8 @@ public class GameActivity extends MobeGameActivity {
     }
 
 
-    private void readLevel() {
-        XMLParser xmlParser = new XMLParser();
+    private void readLevel(Player player) {
+        XMLParser xmlParser = new XMLParser(player);
         List<Object> list= xmlParser.readLevel(this);
         for(int i = 0 ; i < list.size() ; i++){
             GameEngine.addGameElements(list.get(i));

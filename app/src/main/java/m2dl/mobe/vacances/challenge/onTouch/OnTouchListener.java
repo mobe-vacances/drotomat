@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.view.MotionEvent;
 import android.view.View;
 
+import m2dl.mobe.vacances.challenge.game.flickPlateformes.Flicker;
 import m2dl.mobe.vacances.challenge.game.mobengine.utils.DisplayScale;
 import m2dl.mobe.vacances.challenge.pause.Exit;
 
@@ -23,6 +24,14 @@ public class OnTouchListener implements View.OnTouchListener {
                     activity.finish();
                 }
         }
+
+        if(event.getAction() == android.view.MotionEvent.ACTION_DOWN) {
+            Flicker.switchAll();
+        }
+        else if(event.getAction() == MotionEvent.ACTION_UP){
+            Flicker.switchAll();
+        }
+
         return true;
     }
 }

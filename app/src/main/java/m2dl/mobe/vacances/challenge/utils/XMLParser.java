@@ -14,13 +14,17 @@ import java.util.List;
 
 import m2dl.mobe.vacances.challenge.R;
 import m2dl.mobe.vacances.challenge.game.platform.Platform;
+import m2dl.mobe.vacances.challenge.game.platform.SolidPlatform;
+import m2dl.mobe.vacances.challenge.game.player.Player;
 import m2dl.mobe.vacances.challenge.level.PlateformeFlick;
 
 
 public class XMLParser {
 
-    public XMLParser(){
+    private Player player;
 
+    public XMLParser(Player player){
+        this.player = player;
     }
 
 
@@ -100,7 +104,7 @@ public class XMLParser {
         return objects;
     }
 
-    private PlateformeDure buildPlateformeDure(XmlResourceParser xrp) {
+    private SolidPlatform buildPlateformeDure(XmlResourceParser xrp) {
         List<Integer> rect = new ArrayList<>();
         int eventType = 0;
         try {
@@ -119,7 +123,7 @@ public class XMLParser {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return new PlateformeDure(rect.get(0),rect.get(1),rect.get(2),rect.get(3));
+        return new SolidPlatform(rect.get(0),rect.get(1),rect.get(2),rect.get(3), player);
     }
 
     private PlateformeFlick buildPlateformeFlick(XmlResourceParser xrp) {
@@ -141,7 +145,7 @@ public class XMLParser {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return new PlateformeFlick(rect.get(0),rect.get(1),rect.get(2),rect.get(3),rect.get(4));
+        return new PlateformeFlick(rect.get(0),rect.get(1),rect.get(2),rect.get(3),rect.get(4), player);
     }
 
 

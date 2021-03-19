@@ -5,16 +5,17 @@ import android.graphics.DashPathEffect;
 import android.graphics.Paint;
 
 import m2dl.mobe.vacances.challenge.game.flickPlateformes.Flicker;
-import m2dl.mobe.vacances.challenge.game.mobengine.core.Updatable;
+import m2dl.mobe.vacances.challenge.game.platform.Platform;
+import m2dl.mobe.vacances.challenge.game.player.Player;
 
-public class PlateformeFlick extends aPlateforme {
+public class PlateformeFlick extends Platform {
 
     private boolean state;
     private int type;
 
 
-    public PlateformeFlick(int left, int top, int right, int bottom, int type) {
-        super(left, top, right, bottom);
+    public PlateformeFlick(int left, int top, int right, int bottom, int type, Player player) {
+        super(left, top, right, bottom, player);
         this.borderPaint = new Paint();
         if(type == 1){
             state = false;
@@ -64,10 +65,4 @@ public class PlateformeFlick extends aPlateforme {
     public void switchPlateform(){
         this.state = !this.state;
     }
-
-    @Override
-    public void doSomething() {
-        //switch state
-    }
-
 }
