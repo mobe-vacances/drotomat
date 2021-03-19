@@ -39,4 +39,7 @@ public class Constants {
     public static final float PLAYER_X_ACCELERATION = 0.00005f;
 
     public static final int Z_INDEX_PLAYER = 100;
+
+    public static final int BACKGROUND_Z_INDEX = 0;
+    public static final int LEVEL_Z_INDEX = 152;
 }

@@ -5,7 +5,7 @@ import android.graphics.Canvas;
 import android.graphics.Rect;
 
 import m2dl.mobe.vacances.challenge.R;
-import m2dl.mobe.vacances.challenge.game.GameConstants;
+import m2dl.mobe.vacances.challenge.game.Constants;
 import m2dl.mobe.vacances.challenge.game.mobengine.core.Drawable;
 import m2dl.mobe.vacances.challenge.game.mobengine.core.GameEngine;
 import m2dl.mobe.vacances.challenge.game.mobengine.resource_stores.BitmapStore;
@@ -22,7 +22,7 @@ public class Exit implements Drawable {
 
     @Override
     public int getZIndex() {
-        return GameConstants.LEVEL_Z_INDEX;
+        return Constants.LEVEL_Z_INDEX;
     }
 
     public Exit(){
