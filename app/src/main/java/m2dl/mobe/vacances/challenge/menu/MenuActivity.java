@@ -50,6 +50,7 @@ public class MenuActivity extends SoundActivity {
         VibratorService.requestVibrator(this);
         BitmapStore.decodeBitmaps(Constants.USED_BITMAPs_IDS, getResources());
         SoundStore.createMediaPlayers(Constants.USED_SOUNDS_IDS, this);
+        SoundStore.createMediaPlayers(new int[]{R.raw.click},this);
         FirebaseInstallationService.init();
         GlobalHighscoresHandler.init();
 
@@ -63,22 +64,27 @@ public class MenuActivity extends SoundActivity {
     public void launchGame(View v) {
         startActivity(new Intent(MenuActivity.this, GameActivity.class));
         VibratorService.heavyClick();
+        SoundStore.playSound(R.raw.click,100);
         SoundStore.stopLoopedSound(R.raw.menu);
     }
 
     public void launchRules(View v) {
+        SoundStore.playSound(R.raw.click,100);
         startActivity(new Intent(MenuActivity.this, RulesActivity.class));
     }
 
     public void launchScores(View v) {
+        SoundStore.playSound(R.raw.click,100);
         startActivity(new Intent(MenuActivity.this, ScoresActivity.class));
     }
 
     public void launchSettings(View v) {
+        SoundStore.playSound(R.raw.click,100);
         startActivity(new Intent(MenuActivity.this, SettingsActivity.class));
     }
 
     public void launchCredits(View v) {
+        SoundStore.playSound(R.raw.click,100);
         startActivity(new Intent(MenuActivity.this, CreditsActivity.class));
     }
 }
