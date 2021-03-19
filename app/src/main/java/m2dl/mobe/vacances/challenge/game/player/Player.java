@@ -1,17 +1,19 @@
 package m2dl.mobe.vacances.challenge.game.player;
 
+import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Rect;
-import android.os.Handler;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import m2dl.mobe.vacances.challenge.R;
 import m2dl.mobe.vacances.challenge.game.Constants;
 import m2dl.mobe.vacances.challenge.game.mobengine.core.Drawable;
 import m2dl.mobe.vacances.challenge.game.mobengine.core.Updatable;
+import m2dl.mobe.vacances.challenge.game.mobengine.resource_stores.BitmapStore;
 import m2dl.mobe.vacances.challenge.game.mobengine.utils.DisplayScale;
 import m2dl.mobe.vacances.challenge.game.platform.Platform;
 
@@ -47,7 +49,13 @@ public class Player implements Drawable, Updatable {
         );
 
         paint.setColor(Color.RED);
+
+        imageStep = 1;
+
     }
+
+    int imageStep;
+    private final static int PAS = 10;
 
     @Override
     public int getZIndex() {
@@ -56,12 +64,46 @@ public class Player implements Drawable, Updatable {
 
     @Override
     public void draw(Canvas canvas) {
-        canvas.drawRect(rect, paint);
+        if (ySpeed != 0f) {
+            canvas.drawBitmap(
+                    Bitmap.createScaledBitmap(BitmapStore.getBitmap(xSpeed < 0 ? R.drawable.player_jump : R.drawable.player_jump_revert), rect.width(), rect.height(), false),
+                    rect.left, rect.top,
+                    null
+            );
+        } else {
+            if (xSpeed > 0) {
+                canvas.drawBitmap(
+                        Bitmap.createScaledBitmap(BitmapStore.getBitmap(incressStep()), rect.width(), rect.height(), false),
+                        rect.left, rect.top,
+                        null
+                );
+            } else {
+                canvas.drawBitmap(
+                        Bitmap.createScaledBitmap(BitmapStore.getBitmap(incressStep()), rect.width(), rect.height(), false),
+                        rect.left, rect.top,
+                        null
+                );
+            }
+        }
+    }
+
+    private int incressStep() {
+        imageStep = ((imageStep + 1) % (PAS * 3)) + 1;
+        switch (Math.floorDiv(imageStep, PAS)) {
+            case 0:
+                return xSpeed > 0 ? R.drawable.player_2 : R.drawable.player_2_revert;
+            case 1:
+                return xSpeed > 0 ? R.drawable.player_3 : R.drawable.player_3_revert;
+            case 2:
+                return xSpeed > 0 ? R.drawable.player_1 : R.drawable.player_1_revert;
+            default:
+                return xSpeed > 0 ? R.drawable.player_1 : R.drawable.player_1_revert;
+        }
     }
 
     @Override
     public void update(int delta) {
-        yAcceleration = Math.min(0, yAcceleration + Constants.PLAYER_Y_INERTIA*delta);
+        yAcceleration = Math.min(0, yAcceleration + Constants.PLAYER_Y_INERTIA * delta);
 
         xSpeed = Math.max(-1*Constants.PLAYER_MAX_X_SPEED, Math.min(xSpeed + xAcceleration*delta, Constants.PLAYER_MAX_Y_SPEED));
 
@@ -83,11 +125,11 @@ public class Player implements Drawable, Updatable {
         x += xSpeed * delta;
         y += ySpeed * delta;
 
-        rect.offsetTo((int)x,(int)y);
+        rect.offsetTo((int) x, (int) y);
     }
 
     public void jump() {
-        if(ySpeed == 0) {
+        if (ySpeed == 0) {
             currentPlatform = null;
             jumping = true;
             yAcceleration = Constants.PLAYER_JUMP_ACCELERATION;
@@ -95,7 +137,7 @@ public class Player implements Drawable, Updatable {
     }
 
     public void changeDirection() {
-        xAcceleration = -1*xAcceleration;
+        xAcceleration = -1 * xAcceleration;
     }
 
     public float getxSpeed() {
