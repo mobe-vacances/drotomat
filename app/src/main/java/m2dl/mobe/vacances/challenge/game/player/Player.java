@@ -6,12 +6,16 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Rect;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import m2dl.mobe.vacances.challenge.R;
 import m2dl.mobe.vacances.challenge.game.Constants;
 import m2dl.mobe.vacances.challenge.game.mobengine.core.Drawable;
 import m2dl.mobe.vacances.challenge.game.mobengine.core.Updatable;
 import m2dl.mobe.vacances.challenge.game.mobengine.resource_stores.BitmapStore;
 import m2dl.mobe.vacances.challenge.game.mobengine.utils.DisplayScale;
+import m2dl.mobe.vacances.challenge.game.platform.Platform;
 
 public class Player implements Drawable, Updatable {
 
@@ -29,6 +33,9 @@ public class Player implements Drawable, Updatable {
     private boolean jumping = true;
 
     private final Paint paint = new Paint();
+
+
+    private Platform currentPlatform = null;
 
     public Player(float x, float y) {
         this.x = x;
@@ -57,7 +64,7 @@ public class Player implements Drawable, Updatable {
 
     @Override
     public void draw(Canvas canvas) {
-        if (ySpeed != 0.0) {
+        if (ySpeed != 0f) {
             canvas.drawBitmap(
                     Bitmap.createScaledBitmap(BitmapStore.getBitmap(xSpeed < 0 ? R.drawable.player_jump : R.drawable.player_jump_revert), rect.width(), rect.height(), false),
                     rect.left, rect.top,
@@ -66,8 +73,8 @@ public class Player implements Drawable, Updatable {
         } else {
             if (xSpeed > 0) {
                 canvas.drawBitmap(
-                        Bitmap.createScaledBitmap(BitmapStore.getBitmap(incressStep()), rect.width(), rect.height(), false),
-                        rect.left, rect.top,
+                        Bitmap.createScaledBitmap(BitmapStore.getBitmap(incressStep()), rect.width()+20, rect.height(), false),
+                        rect.left-10, rect.top,
                         null
                 );
             } else {
@@ -98,12 +105,19 @@ public class Player implements Drawable, Updatable {
     public void update(int delta) {
         yAcceleration = Math.min(0, yAcceleration + Constants.PLAYER_Y_INERTIA * delta);
 
-        xSpeed = Math.max(-1 * Constants.PLAYER_MAX_X_SPEED, Math.min(xSpeed + xAcceleration * delta, Constants.PLAYER_MAX_Y_SPEED));
-        if (jumping) {
-            ySpeed = Math.max(-1 * Constants.PLAYER_MAX_Y_SPEED, Math.min(ySpeed + Constants.PLAYER_GRAVITY * delta + yAcceleration * delta, Constants.PLAYER_MAX_Y_SPEED));
-            if (ySpeed > 0 && DisplayScale.getRect().bottom <= rect.bottom) {
+        xSpeed = Math.max(-1*Constants.PLAYER_MAX_X_SPEED, Math.min(xSpeed + xAcceleration*delta, Constants.PLAYER_MAX_Y_SPEED));
+
+        if(currentPlatform == null || !Rect.intersects(rect, currentPlatform.getRectangle())) {
+            jumping = true;
+        }
+
+        if(jumping) {
+            ySpeed = Math.max(-1*Constants.PLAYER_MAX_Y_SPEED, Math.min(ySpeed + Constants.PLAYER_GRAVITY*delta + yAcceleration*delta, Constants.PLAYER_MAX_Y_SPEED));
+            if(ySpeed > 0 && currentPlatform != null && currentPlatform.getRectangle().top <= rect.bottom && rect.right > currentPlatform.getRectangle().left && rect.left < currentPlatform.getRectangle().right) {
                 ySpeed = 0;
                 jumping = false;
+                y = currentPlatform.getRectangle().top - Constants.PLAYER_HEIGHT;
+                //jump();
             }
         }
 
@@ -115,6 +129,7 @@ public class Player implements Drawable, Updatable {
 
     public void jump() {
         if (ySpeed == 0) {
+            currentPlatform = null;
             jumping = true;
             yAcceleration = Constants.PLAYER_JUMP_ACCELERATION;
         }
@@ -124,4 +139,19 @@ public class Player implements Drawable, Updatable {
         xAcceleration = -1 * xAcceleration;
     }
 
+    public float getxSpeed() {
+        return xSpeed;
+    }
+
+    public float getySpeed() {
+        return ySpeed;
+    }
+
+    public Rect getRect() {
+        return rect;
+    }
+
+    public void setCurrentPlatform(Platform currentPlatform) {
+        this.currentPlatform = currentPlatform;
+    }
 }

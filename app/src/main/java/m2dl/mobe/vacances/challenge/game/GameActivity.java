@@ -9,6 +9,7 @@ import java.util.Random;
 import m2dl.mobe.vacances.challenge.game.background.Background;
 import m2dl.mobe.vacances.challenge.game.mobengine.activities.MobeGameActivity;
 import m2dl.mobe.vacances.challenge.game.mobengine.core.GameEngine;
+import m2dl.mobe.vacances.challenge.game.platform.SolidPlatform;
 import m2dl.mobe.vacances.challenge.game.mobengine.sensors.LightEventListener;
 import m2dl.mobe.vacances.challenge.game.mobengine.sensors.SensorManagerService;
 import m2dl.mobe.vacances.challenge.game.player.AccelerometerEventListener;
@@ -24,27 +25,24 @@ public class GameActivity extends MobeGameActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        Background background = new Background();
-
         getGameView().setOnTouchListener(new OnTouchListener(this));
 
         GameEngine.reset();
+
+        Player player = new Player(0,0);
+
         GameEngine.addGameElements(
-                background,
+                player,
+                new Background(),
+                new SolidPlatform(0,800,200,900, player),
+                new SolidPlatform(500,700,1000,800, player),
                 new Exit()
         );
-        readLevel();
-        GameEngine.start();
-
-        Player p = new Player(0, 0);
-        Background b = new Background();
-
-        GameEngine.addGameElements(p, b);
 
         SensorManagerService.requestSensorManager(this);
         SensorManagerService.addSensorListeners(
-                new AccelerometerEventListener(p),
-                new LightEventListener(p)
+                new AccelerometerEventListener(player),
+                new LightEventListener(player)
         );
 
     }
