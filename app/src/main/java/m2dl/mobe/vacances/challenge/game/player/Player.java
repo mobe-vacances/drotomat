@@ -41,7 +41,6 @@ public class Player implements Drawable, Updatable {
 
         paint.setColor(Color.RED);
 
-        new Handler().postDelayed(this::changeDirection, 5000);
     }
 
     @Override
@@ -81,6 +80,7 @@ public class Player implements Drawable, Updatable {
     }
 
     public void changeDirection() {
+        System.out.println("direction changed");
         xAcceleration = -1*xAcceleration;
     }
 

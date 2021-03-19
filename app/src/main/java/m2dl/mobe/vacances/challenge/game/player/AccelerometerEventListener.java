@@ -11,19 +11,20 @@ import m2dl.mobe.vacances.challenge.game.mobengine.sensors.BaseSensorEventListen
 
 public class AccelerometerEventListener extends BaseSensorEventListener {
 
-
     private Date lastShake;
+    private final Player player;
 
-    public AccelerometerEventListener() {
+    public AccelerometerEventListener(Player p) {
         super(Sensor.TYPE_ACCELEROMETER);
+        player = p;
     }
 
     @Override
     public void onSensorChanged(SensorEvent event) {
         if (event.sensor.getType() == Sensor.TYPE_ACCELEROMETER) {
-            if (shakeDetected(event) && hasElapsedEnoughTimeBetweenLastShake()) {
+            if (shakeDetected(event) && hasElapsedEnoughTimeSinceLastShake()) {
                 lastShake = new Date();
-                // TODO Add action performed when shake
+                player.jump();
             }
         }
     }
@@ -34,8 +35,8 @@ public class AccelerometerEventListener extends BaseSensorEventListener {
                 Math.abs(event.values[2]) > Constants.ACCELERATION_THRESHOLD;
     }
 
-    private boolean hasElapsedEnoughTimeBetweenLastShake() {
-        return lastShake == null || new Date().getTime() - lastShake.getTime() > Constants.TIME_BETWEEN_RESETS;
+    private boolean hasElapsedEnoughTimeSinceLastShake() {
+        return lastShake == null || new Date().getTime() - lastShake.getTime() > Constants.TIME_BETWEEN_SHAKE_RESETS;
     }
 
 
