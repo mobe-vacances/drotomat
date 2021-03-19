@@ -7,11 +7,13 @@ import android.graphics.Rect;
 
 import m2dl.mobe.vacances.challenge.game.Constants;
 import m2dl.mobe.vacances.challenge.game.end_animation.Particle;
+import m2dl.mobe.vacances.challenge.R;
 import m2dl.mobe.vacances.challenge.game.mobengine.core.Drawable;
 import m2dl.mobe.vacances.challenge.game.mobengine.core.GameEngine;
 import m2dl.mobe.vacances.challenge.game.mobengine.core.Updatable;
 import m2dl.mobe.vacances.challenge.game.mobengine.utils.DisplayScale;
 import m2dl.mobe.vacances.challenge.game.mobengine.utils.RandomService;
+import m2dl.mobe.vacances.challenge.game.mobengine.resource_stores.SoundStore;
 import m2dl.mobe.vacances.challenge.game.player.Player;
 import m2dl.mobe.vacances.challenge.onTouch.OnTouchListener;
 import m2dl.mobe.vacances.challenge.onTouch.StateTouch;
@@ -52,6 +54,8 @@ public class Goal implements Drawable, Updatable {
         }
 
         if(player.isCanMove() && this.hitbox.intersect(player.getRect())){
+            SoundStore.stopLoopedSound(R.raw.game_midi);
+            SoundStore.playSound(R.raw.victory,100);
             player.setCanMove(false);
             OnTouchListener.setStateTouch(StateTouch.WAITING_END);
         }

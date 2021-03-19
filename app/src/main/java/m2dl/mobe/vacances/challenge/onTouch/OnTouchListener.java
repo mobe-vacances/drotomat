@@ -3,10 +3,15 @@ package m2dl.mobe.vacances.challenge.onTouch;
 import android.view.MotionEvent;
 import android.view.View;
 
+import m2dl.mobe.vacances.challenge.R;
 import m2dl.mobe.vacances.challenge.game.GameActivity;
 import m2dl.mobe.vacances.challenge.game.mobengine.utils.DisplayScale;
 import m2dl.mobe.vacances.challenge.exit.Exit;
 import m2dl.mobe.vacances.challenge.game.platform.Flicker;
+import m2dl.mobe.vacances.challenge.game.flickPlateformes.Flicker;
+import m2dl.mobe.vacances.challenge.game.mobengine.resource_stores.SoundStore;
+import m2dl.mobe.vacances.challenge.game.mobengine.utils.DisplayScale;
+import m2dl.mobe.vacances.challenge.pause.Exit;
 
 
 public class OnTouchListener implements View.OnTouchListener {
@@ -37,9 +42,12 @@ public class OnTouchListener implements View.OnTouchListener {
                 Flicker.switchAll();
             }
         } else if (stateTouch.equals(StateTouch.WAITING_START)) {
+            SoundStore.playSound(R.raw.start, 80);
             activity.getPlayer().setCanMove(true);
             stateTouch = StateTouch.RUNNING;
         } else if (stateTouch.equals(StateTouch.WAITING_END)) {
+            SoundStore.stopLoopedSound(R.raw.victory);
+            SoundStore.playSound(R.raw.menu, 100);
             activity.finish();
         }
         return true;
