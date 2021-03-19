@@ -1,4 +1,4 @@
-package m2dl.mobe.vacances.challenge.level;
+package m2dl.mobe.vacances.challenge.game.platform;
 
 import android.graphics.Canvas;
 import android.graphics.Color;
