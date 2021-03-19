@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+
+    <Plateformes>
+
+        <Start>
+            <x>400</x>
+            <y>75</y>
+        </Start>
+
+        <PlateformeDure>
+            <left>350</left>
+            <top>200</top>
+            <right>500</right>
+            <bottom>350</bottom>
+        </PlateformeDure>
+
+
+        <PlateformeFlick>
+            <left>150</left>
+            <top>475</top>
+            <right>300</right>
+            <bottom>625</bottom>
+            <type>2</type>
+        </PlateformeFlick>
+
+        <PlateformeFlick>
+            <left>550</left>
+            <top>475</top>
+            <right>700</right>
+            <bottom>625</bottom>
+            <type>2</type>
+        </PlateformeFlick>
+
+
+
+        <PlateformeFlick>
+            <left>350</left>
+            <top>700</top>
+            <right>500</right>
+            <bottom>850</bottom>
+            <type>1</type>
+        </PlateformeFlick>
+
+
+
+        <Goal>
+            <left>350</left>
+            <top>1200</top>
+            <right>500</right>
+            <bottom>1350</bottom>
+        </Goal>
+
+    </Plateformes>
+
+</resources>
