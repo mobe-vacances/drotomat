@@ -161,14 +161,4 @@ public class Player implements Drawable, Updatable {
     public void removeCurrentPlatform(Platform platform) {
         this.currentPlatforms.remove(platform);
     }
-
-    public void setX(float x) {
-        this.x = x;
-        this.rect.offsetTo((int)x,(int)y);
-    }
-
-    public void setY(float y) {
-        this.y = y;
-        this.rect.offsetTo((int)x,(int)y);
-    }
 }
