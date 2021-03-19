@@ -10,7 +10,6 @@ import m2dl.mobe.vacances.challenge.game.mobengine.activities.MobeGameActivity;
 import m2dl.mobe.vacances.challenge.game.mobengine.core.GameEngine;
 import m2dl.mobe.vacances.challenge.game.mobengine.resource_stores.SoundStore;
 import m2dl.mobe.vacances.challenge.game.platform.SolidPlatform;
-import m2dl.mobe.vacances.challenge.game.mobengine.sensors.LightEventListener;
 import m2dl.mobe.vacances.challenge.game.player.LightEventListener;
 import m2dl.mobe.vacances.challenge.game.mobengine.sensors.SensorManagerService;
 import m2dl.mobe.vacances.challenge.game.player.AccelerometerEventListener;
