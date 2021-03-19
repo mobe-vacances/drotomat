@@ -6,7 +6,6 @@ import android.graphics.DashPathEffect;
 import android.graphics.Paint;
 import android.graphics.Rect;
 
-import m2dl.mobe.vacances.challenge.game.flickPlateformes.Flicker;
 import m2dl.mobe.vacances.challenge.game.platform.Platform;
 import m2dl.mobe.vacances.challenge.game.player.Player;
 
