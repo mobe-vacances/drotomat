@@ -63,7 +63,7 @@ public class PlateformeFlick extends Platform {
 
     @Override
     public void draw(Canvas canvas) {
-        if (state && Rect.intersects(player.getRect(), rectangle)) {
+        if (state && Rect.intersects(player.getRect(), rectangle) && player.getRect().bottom < rectangle.bottom) {
             player.addCurrentPlatform(this);
         } else {
             player.removeCurrentPlatform(this);
