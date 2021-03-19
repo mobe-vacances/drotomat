@@ -70,33 +70,23 @@ public class Player implements Drawable, Updatable {
                     null
             );
         } else {
-            if (xSpeed > 0) {
-                canvas.drawBitmap(
-                        Bitmap.createScaledBitmap(BitmapStore.getBitmap(incressStep()), rect.width()+20, rect.height(), false),
-                        rect.left-10, rect.top,
-                        null
-                );
-            } else {
-                canvas.drawBitmap(
-                        Bitmap.createScaledBitmap(BitmapStore.getBitmap(incressStep()), rect.width()+20, rect.height(), false),
-                        rect.left-10, rect.top,
-                        null
-                );
-            }
+            canvas.drawBitmap(
+                    Bitmap.createScaledBitmap(BitmapStore.getBitmap(increaseStep()), rect.width()+20, rect.height(), false),
+                    rect.left-10, rect.top,
+                    null
+            );
         }
     }
 
-    private int incressStep() {
+    private int increaseStep() {
         imageStep = ((imageStep + 1) % (PAS * 3)) + 1;
         switch (Math.floorDiv(imageStep, PAS)) {
             case 0:
-                return xAcceleration > 0 ? R.drawable.player_2 : R.drawable.player_2_revert;
+                return xSpeed > 0 ? R.drawable.player_2 : R.drawable.player_2_revert;
             case 1:
-                return xAcceleration > 0 ? R.drawable.player_3 : R.drawable.player_3_revert;
-            case 2:
-                return xAcceleration > 0 ? R.drawable.player_1 : R.drawable.player_1_revert;
+                return xSpeed > 0 ? R.drawable.player_3 : R.drawable.player_3_revert;
             default:
-                return xAcceleration > 0 ? R.drawable.player_1 : R.drawable.player_1_revert;
+                return xSpeed > 0 ? R.drawable.player_1 : R.drawable.player_1_revert;
         }
     }
 
