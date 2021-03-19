@@ -15,7 +15,7 @@ public class SolidPlatform extends Platform {
     @Override
     public void initPaints() {
         fillPaint.setStyle(Paint.Style.FILL);
-        fillPaint.setColor(Color.YELLOW);
+        fillPaint.setColor(Color.DKGRAY);
     }
 
 }

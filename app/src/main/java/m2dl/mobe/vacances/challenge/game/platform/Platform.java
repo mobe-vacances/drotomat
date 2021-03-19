@@ -34,7 +34,9 @@ public abstract class Platform implements Drawable {
     @Override
     public void draw(Canvas canvas) {
         if (Rect.intersects(player.getRect(), rectangle)) {
-            player.setCurrentPlatform(this);
+            player.addCurrentPlatform(this);
+        } else {
+            player.removeCurrentPlatform(this);
         }
 
         initPaints();
