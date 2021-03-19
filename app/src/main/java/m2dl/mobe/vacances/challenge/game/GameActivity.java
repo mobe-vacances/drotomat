@@ -32,7 +32,7 @@ public class GameActivity extends MobeGameActivity {
                 player,
                 new Background(),
                 new SolidPlatform(0,800,200,900, player),
-                new SolidPlatform(250,700,1000,800, player)
+                new SolidPlatform(500,700,1000,800, player)
         );
 
         SensorManagerService.requestSensorManager(this);

@@ -113,10 +113,11 @@ public class Player implements Drawable, Updatable {
 
         if(jumping) {
             ySpeed = Math.max(-1*Constants.PLAYER_MAX_Y_SPEED, Math.min(ySpeed + Constants.PLAYER_GRAVITY*delta + yAcceleration*delta, Constants.PLAYER_MAX_Y_SPEED));
-            if(ySpeed > 0 && currentPlatform != null && currentPlatform.getRectangle().top <= rect.bottom && rect.left > currentPlatform.getRectangle().left && rect.right < currentPlatform.getRectangle().right) {
+            if(ySpeed > 0 && currentPlatform != null && currentPlatform.getRectangle().top <= rect.bottom && rect.right > currentPlatform.getRectangle().left && rect.left < currentPlatform.getRectangle().right) {
                 ySpeed = 0;
                 jumping = false;
                 y = currentPlatform.getRectangle().top - Constants.PLAYER_HEIGHT;
+                //jump();
             }
         }
 
