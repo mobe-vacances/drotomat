@@ -4,7 +4,7 @@ import android.app.Activity;
 import android.view.MotionEvent;
 import android.view.View;
 
-import m2dl.mobe.vacances.challenge.game.flickPlateformes.Flicker;
+import m2dl.mobe.vacances.challenge.level.Flicker;
 import m2dl.mobe.vacances.challenge.game.mobengine.utils.DisplayScale;
 import m2dl.mobe.vacances.challenge.pause.Exit;
 

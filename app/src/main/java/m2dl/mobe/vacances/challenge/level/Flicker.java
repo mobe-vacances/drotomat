@@ -1,4 +1,4 @@
-package m2dl.mobe.vacances.challenge.game.flickPlateformes;
+package m2dl.mobe.vacances.challenge.level;
 
 import java.util.ArrayList;
 import java.util.List;
