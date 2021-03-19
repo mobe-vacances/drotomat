@@ -1,11 +1,8 @@
 package m2dl.mobe.vacances.challenge.game;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 
 import java.util.List;
-import java.util.Random;
 
 import m2dl.mobe.vacances.challenge.R;
 import m2dl.mobe.vacances.challenge.game.background.Background;
@@ -13,7 +10,7 @@ import m2dl.mobe.vacances.challenge.game.mobengine.activities.MobeGameActivity;
 import m2dl.mobe.vacances.challenge.game.mobengine.core.GameEngine;
 import m2dl.mobe.vacances.challenge.game.mobengine.resource_stores.SoundStore;
 import m2dl.mobe.vacances.challenge.game.platform.SolidPlatform;
-import m2dl.mobe.vacances.challenge.game.mobengine.sensors.LightEventListener;
+import m2dl.mobe.vacances.challenge.game.player.LightEventListener;
 import m2dl.mobe.vacances.challenge.game.mobengine.sensors.SensorManagerService;
 import m2dl.mobe.vacances.challenge.game.player.AccelerometerEventListener;
 import m2dl.mobe.vacances.challenge.game.player.Player;
