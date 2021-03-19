@@ -33,7 +33,7 @@ public class Constants {
     public static final float PLAYER_MAX_X_SPEED = 1f;
     public static final float PLAYER_MAX_Y_SPEED = 1f;
     public static final float PLAYER_JUMP_ACCELERATION = -0.02f;
-    public static final float PLAYER_GRAVITY = 0.0005f;
+    public static final float PLAYER_GRAVITY = 0.00065f;
     public static final float PLAYER_Y_INERTIA = 0.0003f;
     public static final float PLAYER_X_INERTIA = 0.0003f;
     public static final float PLAYER_X_ACCELERATION = 0.00005f;
