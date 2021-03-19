@@ -14,6 +14,8 @@ import m2dl.mobe.vacances.challenge.game.mobengine.sensors.SensorManagerService;
 import m2dl.mobe.vacances.challenge.game.player.AccelerometerEventListener;
 import m2dl.mobe.vacances.challenge.game.player.Player;
 import m2dl.mobe.vacances.challenge.game_over.GameOverActivity;
+import m2dl.mobe.vacances.challenge.onTouch.OnTouchListener;
+import m2dl.mobe.vacances.challenge.pause.Exit;
 import m2dl.mobe.vacances.challenge.utils.XMLParser;
 
 public class GameActivity extends MobeGameActivity {
@@ -24,10 +26,12 @@ public class GameActivity extends MobeGameActivity {
 
         Background background = new Background();
 
+        getGameView().setOnTouchListener(new OnTouchListener(this));
 
         GameEngine.reset();
         GameEngine.addGameElements(
-                background
+                background,
+                new Exit()
         );
         readLevel();
         GameEngine.start();
