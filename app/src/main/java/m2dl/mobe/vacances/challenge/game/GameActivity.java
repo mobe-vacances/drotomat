@@ -9,6 +9,7 @@ import java.util.Random;
 import m2dl.mobe.vacances.challenge.game.background.Background;
 import m2dl.mobe.vacances.challenge.game.mobengine.activities.MobeGameActivity;
 import m2dl.mobe.vacances.challenge.game.mobengine.core.GameEngine;
+import m2dl.mobe.vacances.challenge.game.platform.SolidPlatform;
 import m2dl.mobe.vacances.challenge.game.player.Player;
 import m2dl.mobe.vacances.challenge.game_over.GameOverActivity;
 import m2dl.mobe.vacances.challenge.utils.XMLParser;
@@ -19,19 +20,16 @@ public class GameActivity extends MobeGameActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        Background background = new Background();
-
 
         GameEngine.reset();
-        GameEngine.addGameElements(
-                background
-        );
-        readLevel();
-        GameEngine.start();
+
+        Player player = new Player(0,0);
 
         GameEngine.addGameElements(
-                new Player(0,0),
-                new Background()
+                player,
+                new Background(),
+                new SolidPlatform(0,800,400,900, player),
+                new SolidPlatform(400,700,1000,800, player)
         );
 
     }

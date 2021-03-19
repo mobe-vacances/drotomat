@@ -6,10 +6,14 @@ import android.graphics.Paint;
 import android.graphics.Rect;
 import android.os.Handler;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import m2dl.mobe.vacances.challenge.game.Constants;
 import m2dl.mobe.vacances.challenge.game.mobengine.core.Drawable;
 import m2dl.mobe.vacances.challenge.game.mobengine.core.Updatable;
 import m2dl.mobe.vacances.challenge.game.mobengine.utils.DisplayScale;
+import m2dl.mobe.vacances.challenge.game.platform.Platform;
 
 public class Player implements Drawable, Updatable {
 
@@ -28,6 +32,9 @@ public class Player implements Drawable, Updatable {
 
     private final Paint paint = new Paint();
 
+
+    private Platform currentPlatform = null;
+
     public Player(float x, float y) {
         this.x = x;
         this.y = y;
@@ -40,8 +47,6 @@ public class Player implements Drawable, Updatable {
         );
 
         paint.setColor(Color.RED);
-
-        new Handler().postDelayed(this::changeDirection, 5000);
     }
 
     @Override
@@ -59,11 +64,19 @@ public class Player implements Drawable, Updatable {
         yAcceleration = Math.min(0, yAcceleration + Constants.PLAYER_Y_INERTIA*delta);
 
         xSpeed = Math.max(-1*Constants.PLAYER_MAX_X_SPEED, Math.min(xSpeed + xAcceleration*delta, Constants.PLAYER_MAX_Y_SPEED));
+
+        if(currentPlatform == null || !Rect.intersects(rect, currentPlatform.getRectangle())) {
+            jumping = true;
+        }
+
         if(jumping) {
             ySpeed = Math.max(-1*Constants.PLAYER_MAX_Y_SPEED, Math.min(ySpeed + Constants.PLAYER_GRAVITY*delta + yAcceleration*delta, Constants.PLAYER_MAX_Y_SPEED));
-            if(ySpeed > 0 && DisplayScale.getRect().bottom <= rect.bottom) {
+            if(ySpeed > 0 && currentPlatform != null && currentPlatform.getRectangle().top <= rect.bottom && rect.left > currentPlatform.getRectangle().left && rect.right < currentPlatform.getRectangle().right) {
                 ySpeed = 0;
                 jumping = false;
+                y = currentPlatform.getRectangle().top - Constants.PLAYER_HEIGHT;
+
+                jump();
             }
         }
 
@@ -75,6 +88,7 @@ public class Player implements Drawable, Updatable {
 
     public void jump() {
         if(ySpeed == 0) {
+            currentPlatform = null;
             jumping = true;
             yAcceleration = Constants.PLAYER_JUMP_ACCELERATION;
         }
@@ -84,4 +98,19 @@ public class Player implements Drawable, Updatable {
         xAcceleration = -1*xAcceleration;
     }
 
+    public float getxSpeed() {
+        return xSpeed;
+    }
+
+    public float getySpeed() {
+        return ySpeed;
+    }
+
+    public Rect getRect() {
+        return rect;
+    }
+
+    public void setCurrentPlatform(Platform currentPlatform) {
+        this.currentPlatform = currentPlatform;
+    }
 }
