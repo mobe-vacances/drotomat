@@ -38,7 +38,7 @@
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
-        android:onClick="launchGame"
+        android:onClick="launchLevels"
         android:text="@string/launch_game_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.501"

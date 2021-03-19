@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 
+import m2dl.mobe.vacances.challenge.Levels;
 import m2dl.mobe.vacances.challenge.R;
 import m2dl.mobe.vacances.challenge.credits.CreditsActivity;
 import m2dl.mobe.vacances.challenge.firebase.FirebaseInstallationService;
@@ -54,10 +55,9 @@ public class MenuActivity extends SoundActivity {
         SoundStore.loopSound(R.raw.menu, Constants.VOLUME_MENU_MUSIC);
     }
 
-    public void launchGame(View v) {
-        startActivity(new Intent(MenuActivity.this, GameActivity.class));
+    public void launchLevels(View v) {
+        startActivity(new Intent(MenuActivity.this, Levels.class));
         VibratorService.heavyClick();
-        SoundStore.stopLoopedSound(R.raw.menu);
     }
 
     public void launchRules(View v) {

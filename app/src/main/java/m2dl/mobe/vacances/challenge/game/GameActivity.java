@@ -10,14 +10,13 @@ import java.util.Random;
 import m2dl.mobe.vacances.challenge.game.background.Background;
 import m2dl.mobe.vacances.challenge.game.mobengine.activities.MobeGameActivity;
 import m2dl.mobe.vacances.challenge.game.mobengine.core.GameEngine;
-import m2dl.mobe.vacances.challenge.game.platform.SolidPlatform;
 import m2dl.mobe.vacances.challenge.game.mobengine.sensors.LightEventListener;
 import m2dl.mobe.vacances.challenge.game.mobengine.sensors.SensorManagerService;
 import m2dl.mobe.vacances.challenge.game.player.AccelerometerEventListener;
 import m2dl.mobe.vacances.challenge.game.player.Player;
 import m2dl.mobe.vacances.challenge.game_over.GameOverActivity;
 import m2dl.mobe.vacances.challenge.onTouch.OnTouchListener;
-import m2dl.mobe.vacances.challenge.pause.Exit;
+import m2dl.mobe.vacances.challenge.exit.Exit;
 import m2dl.mobe.vacances.challenge.utils.XMLParser;
 
 public class GameActivity extends MobeGameActivity {

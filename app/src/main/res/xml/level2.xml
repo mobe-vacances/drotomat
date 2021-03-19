@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+
+    <Plateformes>
+
+        <PlateformeFlick>
+            <left>0</left>
+            <top>850</top>
+            <right>300</right>
+            <bottom>900</bottom>
+            <type>1</type>
+        </PlateformeFlick>
+
+        <PlateformeDure>
+            <left>300</left>
+            <top>850</top>
+            <right>550</right>
+            <bottom>900</bottom>
+        </PlateformeDure>
+
+        <PlateformeFlick>
+            <left>550</left>
+            <top>850</top>
+            <right>1300</right>
+            <bottom>900</bottom>
+            <type>2</type>
+        </PlateformeFlick>
+
+        <Start>
+            <x>150</x>
+            <y>250</y>
+        </Start>
+
+        <Goal>
+            <left>700</left>
+            <top>1200</top>
+            <right>1000</right>
+            <bottom>2000</bottom>
+        </Goal>
+
+    </Plateformes>
+
+</resources>

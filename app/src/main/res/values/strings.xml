@@ -21,6 +21,7 @@
     <string name="rules_text">expliquer des trucs là</string>
 
     <string name="scores_title">Scores</string>
+    <string name="levels_title">Levels</string>
 
     <string name="settings_title">Règlages</string>
     <string name="settings_label_volume">Volume</string>

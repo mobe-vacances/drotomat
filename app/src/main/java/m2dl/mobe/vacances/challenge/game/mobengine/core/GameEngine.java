@@ -20,6 +20,8 @@ public class GameEngine {
 
     private static final List<Object> elementsToAdd = new ArrayList<>();
 
+    public static int level;
+
     public static boolean isRunning() {
         return running;
     }

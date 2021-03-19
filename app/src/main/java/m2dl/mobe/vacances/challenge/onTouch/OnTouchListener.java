@@ -5,8 +5,8 @@ import android.view.View;
 
 import m2dl.mobe.vacances.challenge.game.GameActivity;
 import m2dl.mobe.vacances.challenge.game.mobengine.utils.DisplayScale;
+import m2dl.mobe.vacances.challenge.exit.Exit;
 import m2dl.mobe.vacances.challenge.game.platform.Flicker;
-import m2dl.mobe.vacances.challenge.pause.Exit;
 
 
 public class OnTouchListener implements View.OnTouchListener {
