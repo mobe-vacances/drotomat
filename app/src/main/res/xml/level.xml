@@ -19,6 +19,25 @@
             <type>2</type>
         </PlateformeFlick>
 
+        <Start>
+            <x>150</x>
+            <y>250</y>
+        </Start>
+
+        <PlateformeDure>
+            <left>50</left>
+            <top>1000</top>
+            <right>600</right>
+            <bottom>1010</bottom>
+        </PlateformeDure>
+
+        <Goal>
+            <left>600</left>
+            <top>1000</top>
+            <right>10000</right>
+            <bottom>12000</bottom>
+        </Goal>
+
     </Plateformes>
 
 </resources>
