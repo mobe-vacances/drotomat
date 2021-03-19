@@ -17,6 +17,22 @@
             <bottom>20</bottom>
         </PlateformeDure>
 
+        <PlateformeFlick>
+            <left>150</left>
+            <top>100</top>
+            <right>200</right>
+            <bottom>200</bottom>
+            <type>1</type>
+        </PlateformeFlick>
+
+        <PlateformeFlick>
+            <left>300</left>
+            <top>100</top>
+            <right>600</right>
+            <bottom>200</bottom>
+            <type>2</type>
+        </PlateformeFlick>
+
     </Plateformes>
 
 </resources>

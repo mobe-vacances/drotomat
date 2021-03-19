@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import java.util.List;
 import java.util.Random;
 
 import m2dl.mobe.vacances.challenge.game.background.Background;
@@ -17,6 +18,7 @@ import m2dl.mobe.vacances.challenge.game.player.Player;
 import m2dl.mobe.vacances.challenge.game_over.GameOverActivity;
 import m2dl.mobe.vacances.challenge.onTouch.OnTouchListener;
 import m2dl.mobe.vacances.challenge.pause.Exit;
+import m2dl.mobe.vacances.challenge.onTouch.onTouchListener;
 import m2dl.mobe.vacances.challenge.utils.XMLParser;
 
 public class GameActivity extends MobeGameActivity {
@@ -30,6 +32,8 @@ public class GameActivity extends MobeGameActivity {
         GameEngine.reset();
 
         Player player = new Player(0,0);
+
+        readLevel();
 
         GameEngine.addGameElements(
                 player,
@@ -50,7 +54,10 @@ public class GameActivity extends MobeGameActivity {
 
     private void readLevel() {
         XMLParser xmlParser = new XMLParser();
-        System.out.println(xmlParser.read(this));
+        List<Object> list= xmlParser.readLevel(this);
+        for(int i = 0 ; i < list.size() ; i++){
+            GameEngine.addGameElements(list.get(i));
+        }
 
     }
 
