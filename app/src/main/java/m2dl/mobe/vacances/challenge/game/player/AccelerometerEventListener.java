@@ -2,26 +2,20 @@ package m2dl.mobe.vacances.challenge.game.player;
 
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
-import android.widget.TextView;
 
 import java.util.Date;
 
-import m2dl.mobe.vacances.challenge.R;
-import m2dl.mobe.vacances.challenge.game.GameActivity;
+import m2dl.mobe.vacances.challenge.game.Constants;
 import m2dl.mobe.vacances.challenge.game.mobengine.sensors.BaseSensorEventListener;
 
 
 public class AccelerometerEventListener extends BaseSensorEventListener {
 
-    private static final int ACCELERATION_THRESHOLD = 15;
-    private static final long TIME_BETWEEN_RESETS = 500;
 
     private Date lastShake;
-    private final GameActivity gameActivity;
 
-    public AccelerometerEventListener(GameActivity game) {
+    public AccelerometerEventListener() {
         super(Sensor.TYPE_ACCELEROMETER);
-        this.gameActivity = game;
     }
 
     @Override
@@ -35,13 +29,13 @@ public class AccelerometerEventListener extends BaseSensorEventListener {
     }
 
     private boolean shakeDetected(SensorEvent event) {
-        return Math.abs(event.values[0]) > ACCELERATION_THRESHOLD ||
-                Math.abs(event.values[1]) > ACCELERATION_THRESHOLD ||
-                Math.abs(event.values[2]) > ACCELERATION_THRESHOLD;
+        return Math.abs(event.values[0]) > Constants.ACCELERATION_THRESHOLD ||
+                Math.abs(event.values[1]) > Constants.ACCELERATION_THRESHOLD ||
+                Math.abs(event.values[2]) > Constants.ACCELERATION_THRESHOLD;
     }
 
     private boolean hasElapsedEnoughTimeBetweenLastShake() {
-        return lastShake == null || new Date().getTime() - lastShake.getTime() > TIME_BETWEEN_RESETS;
+        return lastShake == null || new Date().getTime() - lastShake.getTime() > Constants.TIME_BETWEEN_RESETS;
     }
 
 

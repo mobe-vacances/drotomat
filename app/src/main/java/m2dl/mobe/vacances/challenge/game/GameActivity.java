@@ -8,6 +8,7 @@ import java.util.Random;
 
 import m2dl.mobe.vacances.challenge.R;
 import m2dl.mobe.vacances.challenge.game.mobengine.activities.MobeGameActivity;
+import m2dl.mobe.vacances.challenge.game.mobengine.sensors.LightEventListener;
 import m2dl.mobe.vacances.challenge.game.mobengine.sensors.SensorManagerService;
 import m2dl.mobe.vacances.challenge.game.player.AccelerometerEventListener;
 import m2dl.mobe.vacances.challenge.game_over.GameOverActivity;
@@ -19,7 +20,8 @@ public class GameActivity extends MobeGameActivity {
         super.onCreate(savedInstanceState);
         SensorManagerService.requestSensorManager(this);
         SensorManagerService.addSensorListeners(
-                new AccelerometerEventListener(this)
+                new AccelerometerEventListener(),
+                new LightEventListener()
         );
         setContentView(R.layout.activity_game); // À ENLEVER QUAND IL Y AURA UN VRAI JEU
     }
