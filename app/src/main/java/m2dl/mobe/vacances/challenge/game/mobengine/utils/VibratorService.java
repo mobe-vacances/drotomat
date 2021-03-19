@@ -20,6 +20,7 @@ public class VibratorService {
         }
     }
 
+
     public static void heavyClick() {
         if(vibrationsActive && vibrator != null){
             VibratorService.get().vibrate(VibrationEffect.createOneShot(30, VibrationEffect.DEFAULT_AMPLITUDE));

@@ -11,7 +11,7 @@
         android:roundIcon="@drawable/icongame"
         android:supportsRtl="true"
         android:theme="@style/Theme.Challenge">
-        <activity android:name=".Levels" android:screenOrientation="portrait"></activity>
+        <activity android:name=".Levels" android:screenOrientation="portrait"/>
         <activity android:name=".game.GameActivity" android:screenOrientation="portrait"/>
         <activity android:name=".settings.SettingsActivity" android:screenOrientation="portrait"/>
         <activity android:name=".credits.CreditsActivity" android:screenOrientation="portrait"/>
