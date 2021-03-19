@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import java.util.List;
 import java.util.Random;
 
 import m2dl.mobe.vacances.challenge.game.background.Background;
@@ -34,7 +35,10 @@ public class GameActivity extends MobeGameActivity {
 
     private void readLevel(){
         XMLParser xmlParser = new XMLParser();
-        System.out.println(xmlParser.read(this));
+        List<Object> list= xmlParser.readLevel(this);
+        for(int i = 0 ; i < list.size() ; i++){
+            GameEngine.addGameElements(list.get(i));
+        }
 
     }
 
