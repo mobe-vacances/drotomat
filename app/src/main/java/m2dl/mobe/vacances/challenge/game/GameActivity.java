@@ -15,6 +15,8 @@ import m2dl.mobe.vacances.challenge.game.mobengine.sensors.SensorManagerService;
 import m2dl.mobe.vacances.challenge.game.player.AccelerometerEventListener;
 import m2dl.mobe.vacances.challenge.game.player.Player;
 import m2dl.mobe.vacances.challenge.game_over.GameOverActivity;
+import m2dl.mobe.vacances.challenge.onTouch.OnTouchListener;
+import m2dl.mobe.vacances.challenge.pause.Exit;
 import m2dl.mobe.vacances.challenge.utils.XMLParser;
 
 public class GameActivity extends MobeGameActivity {
@@ -23,6 +25,7 @@ public class GameActivity extends MobeGameActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        getGameView().setOnTouchListener(new OnTouchListener(this));
 
         GameEngine.reset();
 
@@ -32,7 +35,8 @@ public class GameActivity extends MobeGameActivity {
                 player,
                 new Background(),
                 new SolidPlatform(0,800,200,900, player),
-                new SolidPlatform(500,700,1000,800, player)
+                new SolidPlatform(500,700,1000,800, player),
+                new Exit()
         );
 
         SensorManagerService.requestSensorManager(this);
