@@ -11,7 +11,8 @@ import m2dl.mobe.vacances.challenge.game.player.Player;
 public abstract class Platform implements Drawable {
 
     private final Rect rectangle;
-    Paint fillPaint = new Paint();
+    protected Paint fillPaint = new Paint();
+    protected Paint borderPaint = null;
 
     private final Player player;
 
@@ -36,11 +37,18 @@ public abstract class Platform implements Drawable {
             player.setCurrentPlatform(this);
         }
 
+        initPaints();
         canvas.drawRect(rectangle, fillPaint);
+
+        if(borderPaint != null) {
+            canvas.drawRect(rectangle, borderPaint);
+        }
     }
 
     public Rect getRectangle() {
         return rectangle;
     }
+
+    public abstract void initPaints();
 }
 
