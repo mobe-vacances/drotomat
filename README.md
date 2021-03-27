@@ -2,6 +2,8 @@
 
 Projet réalisé lors du MOBE Challenge 2021 du Master Développement Logiciel de l'Université Toulouse 3 Paul Sabatier. *19/03/2021*
 
+Télécharger l'apk : https://github.com/mobe-vacances/drotomat/releases/download/1.0/drotomat.apk
+
 ## Équipe Vacances
 
 - ANDRE Nicolas
